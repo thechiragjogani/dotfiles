@@ -9,7 +9,7 @@ sudo apt-get -y update
 #Installing required packages
 sudo apt-get install -y nmap terminator git docker.io virtualbox-qt swig snapd libcurl4-openssl-dev htop awscli libssl-dev jq ruby-full libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev build-essential libssl-dev libffi-dev python-dev python-setuptools libldns-dev python3-pip rename dstat silversearcher-ag gcc vim ctags tmux dtach
 sudo systemctl enable docker
-sudo apt-get install -y gimp cmake mplayer sshpass libcompress-raw-lzma-perl dos2unix tcpflow scapy  fcrackzip unrar steghide ffmpeg binwalk tesseract-ocr sqlite nikto zbar-tools qrencode pdfcrack vagrant hexedit foremost bsdgamestaskwarrior guake openvpn nmap curl pinta exiftool python-pil sqlitebrowser wireshark idle xclip flask flask-login colorama
+sudo apt-get install -y gimp cmake mplayer sshpass libcompress-raw-lzma-perl dos2unix tcpflow scapy fcrackzip unrar steghide ffmpeg binwalk tesseract-ocr sqlite nikto zbar-tools qrencode pdfcrack vagrant hexedit foremost bsdgamestaskwarrior guake openvpn nmap curl exiftool python-pil sqlitebrowser wireshark idle xclip flask flask-login colorama
 
 #Installing pip and dependencies
 echo "installing pip"
@@ -21,7 +21,8 @@ echo "done"
 
 #Installing SimpleScreenRecorder
 echo "Installing SimpleScreenRecorder"
-echo "" | sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+sudo apt-get install software-properties-common
+sudo apt update
 sudo apt-get install -y simplescreenrecorder
 
 echo "Installing Sublime Text" 
@@ -32,44 +33,18 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt-get update
 sudo apt-get install -y sublime-text
 
-echo "Install Real VNC Viewer..."
-wget "https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.17.1113-Linux-x64.deb" -O vnc_viewer.deb
-dpkg -i vnc_viewer.deb
-rm vnc_viewer.deb
-
-echo "Install Real VNC Connect (Server)..."
-wget 'https://www.realvnc.com/download/file/vnc.files/VNC-Server-6.2.1-Linux-x64.deb' -O vnc_server.deb
-dpkg -i vnc_server.deb
-rm vnc_server.deb
-
-echo "Adding VNC Connect (Server) service to the default startup /etc/rc.local..."
-grep "vncserver-x11-serviced.service" /etc/rc.local
-if [ $? -eq 1 ]
-then
-	echo "systemctl start vncserver-x11-serviced.service" >> ~/etc/rc.local
-fi
-
-echo "Installing Atom..."
-wget "https://atom.io/download/deb" -O atom.deb
-dpkg -i atom.deb
-rm atom.deb
-
 echo "Installing Hopper..."
-wget "https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v4-4.3.14-Linux.deb"
-dpkg -i Hopper-v4-4.3.14-Linux.deb
-rm Hopper-v4-4.3.14-Linux.deb
+wget "https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v4-4.5.29-Linux.deb"
+dpkg -i Hopper-v4-4.5.29-Linux.deb
+rm Hopper-v4-4.5.29-Linux.deb
 
 
 echo "Installing Oracle Java 8..."
-echo "" | sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install -y oracle-java8-installer
 
 echo "Removing boilerplate home directories"
-rmdir ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Public ~/Templates ~/Videos
-
-echo "Setting terminator as the default terminal emulator"
-sed -i s/Exec=gnome-terminal/Exec=terminator/g /usr/share/applications/gnome-terminal.desktop
+rm -rf ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Public ~/Templates ~/Videos
 
 #Configuring the distro with my hotkeys and configuration files
 echo "Configuring the system with my hotkeys and keybindings"
