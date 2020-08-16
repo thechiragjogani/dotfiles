@@ -133,7 +133,7 @@ crtsh(){
 curl -s https://crt.sh/?Identity=%.$1 | grep ">*.$1" | sed 's/<[/]*[TB][DR]>/\n/g' | grep -vE "<|^[\*]*[\.]*$1" | sort -u | awk 'NF'
 }
 
-#directlty nmap subdomains, provide domain as arg
+#directlty nmap subdomains
 certnmap(){
 curl https://certspotter.com/api/v0/certs\?domain\=$1 | jq '.[].dns_names[]' | sed 's/\"//g' | sed 's/\*\.//g' | sort -u | grep $1  | nmap -T5 -Pn -sS -sC -i - -$
 }
@@ -166,4 +166,28 @@ curl -s https://crt.sh/?q\=%.$1\&output\=json | jq -r '.[].name_value' | sed 's/
 
 vhs(){
 ruby ~/tools/virtual-host-discovery/scan.rb --ip=$1 --host=$2
+}
+
+nmapctf(){
+	ports=$(nmap -p- --min-rate=1000  -T4 $1 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
+	nmapi -p$ports $1
+}
+
+#----- CTF's -----
+# HackTheBox
+htb(){
+    pid=$(pgrep openvpn | sed -ne 's/\([0-9]*\)/\1/p')
+    kill $pid
+    cd ~/htb
+    openvpn *.ovpn &>/dev/null &
+    clear
+}
+
+# TryHackMe
+thm(){
+    pid=$(pgrep openvpn | sed -ne 's/\([0-9]*\)/\1/p')
+    kill $pid
+    cd ~/thm
+    openvpn *.ovpn &>/dev/null &
+    clear
 }

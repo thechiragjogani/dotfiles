@@ -38,11 +38,6 @@ wget "https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v4-4.5.29-Linux.deb"
 dpkg -i Hopper-v4-4.5.29-Linux.deb
 rm Hopper-v4-4.5.29-Linux.deb
 
-
-echo "Installing Oracle Java 8..."
-sudo apt-get update
-sudo apt-get install -y oracle-java8-installer
-
 echo "Removing boilerplate home directories"
 rm -rf ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Public ~/Templates ~/Videos
 
