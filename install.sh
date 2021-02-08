@@ -3,6 +3,7 @@
 #Updating kali with fast mirrors
 sudo rm -rf /etc/apt/sources.list
 sudo mv ~/dotfiles/sources.list /etc/apt/
+dpkg --add-architecture amd64
 sudo apt-get -y update
 
 #Installing required packages
