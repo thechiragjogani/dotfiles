@@ -74,17 +74,12 @@ sudo mv ~/dotfiles/goodbye.sh ~/
 #Moving my scripts from repo to system
 sudo mv ~/dotfiles/docker.sh ~/tools/
 sudo mv ~/dotfiles/.bash_funcs ~/
-touch ~/.bash_aliases
-sudo cat ~/dotfiles/.bash_aliases >> ~/.bash_aliases
+sudo mv ~/dotfiles/.bash_aliases ~/
 rm -rf ~/dotfiles/.bash_aliases
 
 #Moving my .bashrc file
 sudo rm -rf ~/.bashrc
 sudo mv ~/dotfiles/.bashrc ~/.bashrc
-
-#Making the changes permanent
-echo "source ~/.bash_funcs" >> ~/.bashrc
-echo "source ~/.bash_aliases" >> ~/.bashrc
 
 source ~/.bashrc
 
