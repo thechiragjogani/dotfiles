@@ -1,2 +1,2 @@
-deb http://kali.cs.nctu.edu.tw/kali kali-rolling main contrib non-free amd64
-deb-src http://kali.cs.nctu.edu.tw/kali kali-rolling main contrib non-free amd64
+deb http://kali.cs.nctu.edu.tw/kali kali-rolling main contrib non-free
+deb-src http://kali.cs.nctu.edu.tw/kali kali-rolling main contrib non-free
