@@ -1,9 +1,8 @@
 #!/bin/bash
 
 #Updating kali with fast mirrors
-sudo rm /etc/apt/sources.list
+sudo rm -rf /etc/apt/sources.list
 sudo mv ~/dotfiles/sources.list /etc/apt/
-sudo cp ~/dotfiles/alias-list.txt ~/
 sudo apt-get -y update
 
 #Installing required packages
@@ -36,7 +35,7 @@ sudo apt-get install -y sublime-text
 echo "Installing Hopper..."
 wget "https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v4-4.5.29-Linux.deb"
 dpkg -i Hopper-v4-4.5.29-Linux.deb
-rm Hopper-v4-4.5.29-Linux.deb
+rm -rf Hopper-v4-4.5.29-Linux.deb
 
 echo "Removing boilerplate home directories"
 rm -rf ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Public ~/Templates ~/Videos
@@ -81,7 +80,7 @@ rm -rf ~/dotfiles/.bash_aliases
 
 #Moving my .bashrc file
 sudo rm -rf ~/.bashrc
-sudo mv ~/dotfiles/bashrc ~/.bashrc
+sudo mv ~/dotfiles/.bashrc ~/.bashrc
 
 #Making the changes permanent
 echo "source ~/.bash_funcs" >> ~/.bashrc
