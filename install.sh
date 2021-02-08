@@ -2,10 +2,9 @@
 
 #Updating kali with fast mirrors
 sudo rm -rf /etc/apt/sources.list
-sudo mv ~/dotfiles/sources.list /etc/apt/
+sudo mv sources.list /etc/apt/
 dpkg --add-architecture amd64
 sudo apt-get -y update
-bash
 
 #Installing required packages
 sudo apt-get install -y nmap terminator git docker.io virtualbox-qt swig snapd libcurl4-openssl-dev htop awscli libssl-dev jq ruby-full libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev build-essential libssl-dev libffi-dev python-dev python-setuptools libldns-dev python3-pip rename dstat silversearcher-ag gcc vim ctags tmux dtach
