@@ -192,6 +192,18 @@ cd ~/tools/
 wget "http://www.caesum.com/handbook/Stegsolve.jar" -O "stegsolve.jar"
 chmod +x "stegsolve.jar"
 
+echo "Configuring pwnbox"
+mkdir ~/gitclones && cd ~/gitclones
+git clone https://github.com/theGuildHall/pwnbox.git
+cd ~/gitclones/pwnbox
+sudo cp *.sh /opt && sudo cp -R bloodhound/ /opt && sudo cp -R htb/ /opt && sudo cp -R icons/ /opt && sudo cp banner /opt
+
+read -p "Enter your ovpn file's full location: (Use pwd) (Ex - /home/user/downloads Use this format exactly) " ovpndir
+ovpn=$(ls $opendir | sed -ne 's/\([0-9]*\).ovpn/\1/p')
+sudo cp $ovpndir/$ovpn.ovpn /etc/openvpn/
+sudo mv /etc/openvpn/$ovpn.ovpn /etc/openvpn/ovpn.conf
+source ~/.bashrc
+
 
 echo -e "Done! All tools are set up in ~/tools"
 echo "Don't forget to set up AWS credentials in ~/.aws/ or type aws configure!"
