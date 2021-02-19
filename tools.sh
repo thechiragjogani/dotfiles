@@ -147,6 +147,10 @@ chmod +x linenum.sh
 cd ~/tools/
 echo "done"
 
+echo "installing linuxprivchecker"
+git clone https://github.com/sleventyeleven/linuxprivchecker
+echo "done"
+
 echo "installing Sublist3r"
 git clone https://github.com/aboul3la/Sublist3r.git
 cd Sublist3r*
