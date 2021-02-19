@@ -1,5 +1,13 @@
 #!/bin/bash
 
+updater
+#Installing required packages
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo apt-get install -y nmap terminator git virtualbox-qt swig snapd libcurl4-openssl-dev htop awscli libssl-dev jq ruby-full libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev build-essential libssl-dev libffi-dev python-dev python-setuptools libldns-dev python3-pip rename dstat silversearcher-ag gcc vim ctags tmux dtach
+sudo systemctl enable docker
+sudo apt-get install -y gimp cmake mplayer sshpass libcompress-raw-lzma-perl dos2unix tcpflow scapy fcrackzip unrar steghide ffmpeg binwalk tesseract-ocr sqlite nikto zbar-tools qrencode pdfcrack vagrant hexedit foremost bsdgamestaskwarrior guake openvpn nmap curl exiftool python-pil sqlitebrowser wireshark idle xclip flask flask-login colorama
+
 #Pulling docker images for web pentesting
 sudo dockerd < /dev/null &> /dev/null &
 docker pull raesene/bwapp
@@ -14,12 +22,6 @@ docker pull opendns/security-ninjas
 
 sudo update-initramfs -u
 
-#Installing required packages
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-sudo apt-get install -y nmap terminator git virtualbox-qt swig snapd libcurl4-openssl-dev htop awscli libssl-dev jq ruby-full libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev build-essential libssl-dev libffi-dev python-dev python-setuptools libldns-dev python3-pip rename dstat silversearcher-ag gcc vim ctags tmux dtach
-sudo systemctl enable docker
-sudo apt-get install -y gimp cmake mplayer sshpass libcompress-raw-lzma-perl dos2unix tcpflow scapy fcrackzip unrar steghide ffmpeg binwalk tesseract-ocr sqlite nikto zbar-tools qrencode pdfcrack vagrant hexedit foremost bsdgamestaskwarrior guake openvpn nmap curl exiftool python-pil sqlitebrowser wireshark idle xclip flask flask-login colorama
 
 #Installing pip and dependencies
 echo "installing pip"
@@ -116,7 +118,7 @@ sudo mv ~/dotfiles/locky.py ~/tools/
 
 #Installing tools in ~/tools/
 cd ~/tools/
-echo"installing pentestlab"
+echo "installing pentestlab"
 git clone https://github.com/eystsen/pentestlab.git
 
 cd ~/tools/
