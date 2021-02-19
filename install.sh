@@ -50,6 +50,7 @@ git clone https://github.com/theGuildHall/pwnbox.git
 cd ~/pwnbox
 sudo cp *.sh /pt && sudo cp -R bloodhound/ /opt && sudo cp -R htb/ /opt && sudo cp -R icons/ /opt && sudo cp banner /opt
 rm -rf ~/pwnbox
+source ~/.bashrc
 sudo sh ~/dotfiles/tools.sh
 
 
