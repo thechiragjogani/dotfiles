@@ -189,16 +189,6 @@ cd ~/tools/
 wget "http://www.caesum.com/handbook/Stegsolve.jar" -O "stegsolve.jar"
 chmod +x "stegsolve.jar"
 
-echo "Configuring pwnbox"
-cd ~
-git clone https://github.com/theGuildHall/pwnbox.git
-cd ~/pwnbox
-sudo cp *.sh /opt && sudo cp -R bloodhound/ /opt && sudo cp -R htb/ /opt && sudo cp -R icons/ /opt && sudo cp banner /opt
-
-read -p "Enter your ovpn file's full location: (Use pwd) (Ex - /home/user/downloads - Use this format exactly) " ovpndir
-ovpn=$(ls $opendir | sed -ne 's/\([0-9]*\).ovpn/\1/p')
-sudo cp $ovpndir/$ovpn.ovpn /etc/openvpn/
-sudo mv /etc/openvpn/$ovpn.ovpn /etc/openvpn/ovpn.conf
 source ~/.bashrc
 
 
