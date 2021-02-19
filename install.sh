@@ -38,9 +38,11 @@ sudo mv ~/dotfiles/.bash_aliases ~/
 #Moving my .bashrc file
 sudo mv ~/dotfiles/.bashrc ~/.bashrc
 source ~/.bashrc
+source ~/.bash_aliases
+source ~/.bash_funcs
 
 dpkg --add-architecture amd64
-sudo apt-get -y update
+updater
 
 echo "Configuring pwnbox"
 cd ~
