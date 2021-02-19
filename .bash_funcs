@@ -1,6 +1,6 @@
 #run updater in terminal then sit back and relax as your machine becomes latest! 
 function updater {
-    sudo apt --fix-broken install &&
+    sudo apt --fix-broken install -y &&
     sudo apt-get update -y &&
     sudo apt-get upgrade -y &&
     sudo apt-get dist-upgrade -y &&
