@@ -118,6 +118,9 @@ sudo mv ~/dotfiles/goodbye.sh ~/
 #Moving locky.py, use locky in terminal to generate some strong passwords
 sudo mv ~/dotfiles/locky.py ~/tools/
 
+#Moving stabilize_shell
+sudo mv ~/dotfiles/stabilize_shell.sh ~/tools/
+
 #Installing tools in ~/tools/
 cd ~/tools/
 echo "installing pentestlab"
