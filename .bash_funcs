@@ -191,3 +191,18 @@ thm(){
     openvpn *.ovpn &>/dev/null &
     clear
 }
+
+#John Hammond
+function ctrl(){
+	xte "keydown Control_L" "key $1" "keyup Control_L"
+}
+
+funtion hide_guake(){
+	xte "keydown Shift_L" "key Return" "key Return" "keyup Shift_L"
+	sleep 0.5
+}
+
+function alt_tab(){
+	xte "keydown Alt_L" "keydown Tab" "keyup Alt_L" "keyup Tab"
+	sleep 0.5
+}
