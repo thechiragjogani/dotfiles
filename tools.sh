@@ -139,6 +139,14 @@ sudo python setup.py install
 cd ~/tools/
 echo "done"
 
+echo "installing LinEnum"
+git clone https://github.com/rebootuser/linenum.git
+cd linenum
+mv LinEnum.sh linenum.sh
+chmod +x linenum.sh
+cd ~/tools/
+echo "done"
+
 echo "installing Sublist3r"
 git clone https://github.com/aboul3la/Sublist3r.git
 cd Sublist3r*
