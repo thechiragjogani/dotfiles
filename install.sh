@@ -26,8 +26,8 @@ echo "Done"
 
 #Making Vim look good
 sudo mv ~/dotfiles/vim/ ~/.vim/
-mkdir -p ~/.vim/bundle                                                      
-cd ~/.vim/bundle                                                           
+mkdir -p ~/.vim/bundle
+cd ~/.vim/bundle
 git clone git://github.com/VundleVim/Vundle.vim.git
 vim +PluginInstall +qall
 
