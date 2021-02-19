@@ -131,16 +131,6 @@ make install
 cd ~/tools/
 echo "done, run dcode on your terminal to decode any text"
 
-#install chromium
-echo "Installing Chromium"
-systemctl start snapd.service
-sudo snap install chromium
-echo "done"
-
-echo "Installing Spotify..."
-sudo snap install spotify
-echo "done"
-
 echo "installing JSParser"
 git clone https://github.com/nahamsec/jsparser.git
 cd jsparser*
