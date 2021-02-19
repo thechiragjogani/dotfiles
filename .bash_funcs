@@ -206,6 +206,3 @@ function alt_tab(){
 	xte "keydown Alt_L" "keydown Tab" "keyup Alt_L" "keyup Tab"
 	sleep 0.5
 }
-
-IP=$(ip -4 addr show tun0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
-PORT=$(($RANDOM+3000))
