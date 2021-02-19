@@ -12,12 +12,6 @@ docker pull citizenstig/nowasp
 docker pull eystsen/altoro
 docker pull opendns/security-ninjas
 
-#fixing linux firmware
-cd ~
-git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
-sudo cp -r linux-firmware/rtl_nic/ /lib/firmware/
-sudo cp -r linux-firmware/i915/ /lib/firmware/
-rm -rf ~/linux-firmware/
 sudo update-initramfs -u
 
 #install go
@@ -27,9 +21,11 @@ echo "Installing Golang"
 wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz
 sudo tar -xvf go1.13.5.linux-amd64.tar.gz
 sudo mv go /usr/local
+sudo mkdir ~/gocode
 echo 'export GOROOT=/usr/local/go' >> ~/.bashrc
-echo 'export GOPATH=$HOME/go'	>> ~/.bashrc			
-echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bashrc	
+echo 'export GOPATH=$HOME/go'	>> ~/.bashrc
+echo 'export GOPATH=$GOPATH:$HOME/gocode' >> ~/.bashrc
+echo 'export PATH=$GOPATH/bin:$GOROOT/bin' >> ~/.bashrc	
 source ~/.bashrc
 
 #Installing some tools with the help of go
@@ -55,6 +51,10 @@ echo "done"
 
 echo "installing waybackurls"
 go get github.com/tomnomnom/waybackurls
+echo "done"
+
+echo "installing FFUF"
+go get github.com/ffuf/ffuf
 echo "done"
 
 #Removing useless go installer
@@ -157,19 +157,16 @@ echo "installing crtndstry"
 git clone https://github.com/nahamsec/crtndstry.git
 echo "done"
 
-echo "downloading Seclists"
-cd ~/tools/
-git clone https://github.com/danielmiessler/SecLists.git
-cd SecLists*
-cd ~/tools/SecLists/Discovery/DNS/
-
 #THIS FILE BREAKS MASSDNS AND NEEDS TO BE CLEANED
+cd /usr/share/seclists/Discovery/DNS/
 cat dns-Jhaddix.txt | head -n -14 > clean-jhaddix-dns.txt
 cd ~/tools/
 echo "done"
 
 echo "downloading privilege-escalation-awesome-scripts-suite"
 git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite.git
+mv privilege-escalation-awesome-scripts-suite peas
+echo "done"
 
 echo "downloading LinEnum"
 git clone https://github.com/rebootuser/linenum.git
@@ -193,12 +190,12 @@ wget "http://www.caesum.com/handbook/Stegsolve.jar" -O "stegsolve.jar"
 chmod +x "stegsolve.jar"
 
 echo "Configuring pwnbox"
-mkdir ~/gitclones && cd ~/gitclones
+cd ~
 git clone https://github.com/theGuildHall/pwnbox.git
-cd ~/gitclones/pwnbox
+cd ~/pwnbox
 sudo cp *.sh /opt && sudo cp -R bloodhound/ /opt && sudo cp -R htb/ /opt && sudo cp -R icons/ /opt && sudo cp banner /opt
 
-read -p "Enter your ovpn file's full location: (Use pwd) (Ex - /home/user/downloads Use this format exactly) " ovpndir
+read -p "Enter your ovpn file's full location: (Use pwd) (Ex - /home/user/downloads - Use this format exactly) " ovpndir
 ovpn=$(ls $opendir | sed -ne 's/\([0-9]*\).ovpn/\1/p')
 sudo cp $ovpndir/$ovpn.ovpn /etc/openvpn/
 sudo mv /etc/openvpn/$ovpn.ovpn /etc/openvpn/ovpn.conf
