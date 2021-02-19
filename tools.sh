@@ -71,7 +71,7 @@ sudo mkdir ~/gocode
 echo 'export GOROOT=/usr/local/go' >> ~/.bashrc
 echo 'export GOPATH=$HOME/go'	>> ~/.bashrc
 echo 'export GOPATH=$GOPATH:$HOME/gocode' >> ~/.bashrc
-echo 'export PATH=$GOPATH/bin:$GOROOT/bin' >> ~/.bashrc	
+echo 'export PATH=$PATH:$GOPATH/bin:$GOROOT/bin' >> ~/.bashrc	
 source ~/.bashrc
 
 #Installing some tools with the help of go
