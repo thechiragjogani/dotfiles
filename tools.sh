@@ -78,7 +78,7 @@ source ~/.bashrc
 echo "installing goimports"
 go get golang.org/x/tools/cmd/goimports
 
-echo"installing gocode"
+echo "installing gocode"
 go get github.com/nsf/gocode
 
 echo "installing gobuster"
