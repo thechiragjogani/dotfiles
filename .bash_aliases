@@ -24,3 +24,8 @@ alias pentestlab='~/tools/pentestlab/pentestlab.sh'
 alias goodbye='~/goodbye.sh'
 alias zoom='zoom </dev/null &>/dev/null &'
 alias xclip='xclip -selection clipboard'
+alias fix="sudo apt-get install -f"
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias code='code --user-data-dir=~/.vscode-root'
