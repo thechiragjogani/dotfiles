@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #Updating kali with fast mirrors
-sudo rm -rf /etc/apt/sources.list
-sudo mv sources.list /etc/apt/
 dpkg --add-architecture amd64
 sudo apt-get -y update
 
 #Installing required packages
-sudo apt-get install -y nmap terminator git docker.io virtualbox-qt swig snapd libcurl4-openssl-dev htop awscli libssl-dev jq ruby-full libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev build-essential libssl-dev libffi-dev python-dev python-setuptools libldns-dev python3-pip rename dstat silversearcher-ag gcc vim ctags tmux dtach
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo apt-get install -y nmap terminator git virtualbox-qt swig snapd libcurl4-openssl-dev htop awscli libssl-dev jq ruby-full libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev build-essential libssl-dev libffi-dev python-dev python-setuptools libldns-dev python3-pip rename dstat silversearcher-ag gcc vim ctags tmux dtach
 sudo systemctl enable docker
 sudo apt-get install -y gimp cmake mplayer sshpass libcompress-raw-lzma-perl dos2unix tcpflow scapy fcrackzip unrar steghide ffmpeg binwalk tesseract-ocr sqlite nikto zbar-tools qrencode pdfcrack vagrant hexedit foremost bsdgamestaskwarrior guake openvpn nmap curl exiftool python-pil sqlitebrowser wireshark idle xclip flask flask-login colorama
 
@@ -76,10 +76,8 @@ sudo mv ~/dotfiles/goodbye.sh ~/
 sudo mv ~/dotfiles/docker.sh ~/tools/
 sudo mv ~/dotfiles/.bash_funcs ~/
 sudo mv ~/dotfiles/.bash_aliases ~/
-rm -rf ~/dotfiles/.bash_aliases
 
 #Moving my .bashrc file
-sudo rm -rf ~/.bashrc
 sudo mv ~/dotfiles/.bashrc ~/.bashrc
 
 source ~/.bashrc
