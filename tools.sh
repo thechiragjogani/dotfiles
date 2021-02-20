@@ -236,6 +236,15 @@ cd ~/tools/
 wget "http://www.caesum.com/handbook/Stegsolve.jar" -O "stegsolve.jar"
 chmod +x "stegsolve.jar"
 
+echo "Downloading poor-mans-pentest scripts"
+cd ~/tools/
+git clone https://github.com/JohnHammond/poor-mans-pentest
+cd poor-mans-pentest
+mkdir /opt/pmp/
+mv ./* /opt/pmp/
+echo "export PATH=$PATH:/opt/pmp/" >> ~/.bashrc
+echo "done"
+
 source ~/.bashrc
 
 
