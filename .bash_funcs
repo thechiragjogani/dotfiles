@@ -197,7 +197,7 @@ function ctrl(){
 	xte "keydown Control_L" "key $1" "keyup Control_L"
 }
 
-funtion hide_guake(){
+function hide_guake(){
 	xte "keydown Shift_L" "key Return" "key Return" "keyup Shift_L"
 	sleep 0.5
 }
@@ -207,7 +207,7 @@ function alt_tab(){
 	sleep 0.5
 }
 
-funtion reverse(){
+function reverse(){
 	IP=$(ip -4 addr show tun0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
 	PORT=$(($RANDOM+3000))
 	hide_guake
