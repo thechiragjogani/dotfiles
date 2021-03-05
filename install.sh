@@ -1,7 +1,19 @@
 #!/bin/bash
+echo"Fixing GPG key errors"
+apt-key adv --keyserver hkp://keys.gnupg.net --recv-keys 7D8D0BF6
+
+echo "Configuring pwnbox"
+cd ~
+git clone https://github.com/theGuildHall/pwnbox.git
+cd ~/pwnbox
+sudo cp *.sh /pt && sudo cp -R bloodhound/ /opt && sudo cp -R htb/ /opt && sudo cp -R icons/ /opt && sudo cp banner /opt
+rm -rf ~/pwnbox
+source ~/.bashrc
 
 echo "Removing boilerplate home directories"
 rm -rf ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Public ~/Templates ~/Videos
+mkdir ~/htb
+mkdir ~/thm
 
 #Configuring the distro with my hotkeys and configuration files
 echo "Configuring the system with my hotkeys and keybindings"
@@ -44,15 +56,7 @@ source ~/.bash_funcs
 dpkg --add-architecture amd64
 updater
 
-echo "Configuring pwnbox"
-cd ~
-git clone https://github.com/theGuildHall/pwnbox.git
-cd ~/pwnbox
-sudo cp *.sh /pt && sudo cp -R bloodhound/ /opt && sudo cp -R htb/ /opt && sudo cp -R icons/ /opt && sudo cp banner /opt
-rm -rf ~/pwnbox
-source ~/.bashrc
 sudo sh ~/dotfiles/tools.sh
-
 
 read -p "Enter your ovpn file's full location: (Use pwd) (Ex - /home/user/downloads - Use this format exactly) " ovpndir; ovpn=$(ls $opendir | sed -ne 's/\([0-9]*\).ovpn/\1/p'); sudo cp $ovpndir/$ovpn.ovpn /etc/openvpn/; sudo mv /etc/openvpn/$ovpn.ovpn /etc/openvpn/ovpn.conf
 
