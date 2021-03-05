@@ -1,6 +1,12 @@
 #!/bin/bash
-echo"Fixing GPG key errors"
+echo"Fixing GPG key errors if there are any!"
+rm -rf /var/lib/apt/lists
+apt-get update 
+apt-get install kali-archive-keyring
 apt-key adv --keyserver hkp://keys.gnupg.net --recv-keys 7D8D0BF6
+gpg --keyserver pgpkeys.mit.edu --recv-key  ED444FF07D8D0BF6
+gpg --keyserver hkp://keys.gnupg.net --recv-key 7D8D0BF6
+gpg -a --export ED444FF07D8D0BF6 | sudo apt-key add -
 
 echo "Configuring pwnbox"
 cd ~
