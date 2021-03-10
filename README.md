@@ -3,7 +3,13 @@ Configure your kali as mine!
 Pre-requisites:
 Kali with xfce and root
 
-Warning: Please move your data from desktop, download, documents, pictures , and movies before running the script folder as they will be deleted.
+For activating root user in kali, follow the mentioned steps:
+1. `sudo su`
+2. `passwd`
+3. Enter new root password.
+4. Log out and re-login as root with the password.
+
+Warning: Please move your data from desktop, download, documents, pictures , and movies before running the script as they will be deleted.
 
 Steps to install:
 
