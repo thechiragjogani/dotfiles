@@ -21,6 +21,7 @@ rm -rf ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Public ~/Templates
 mkdir ~/htb
 mkdir ~/thm
 mkdir ~/ctf
+touch /etc/kali-motd/disable-all
 
 #Configuring the distro with my hotkeys and configuration files
 echo "Configuring the system with my hotkeys and keybindings"
