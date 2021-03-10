@@ -170,7 +170,7 @@ ruby ~/tools/virtual-host-discovery/scan.rb --ip=$1 --host=$2
 
 nmapctf(){
 	ports=$(nmap -p- --min-rate=1000  -T4 $1 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
-	nmaps -Pn -p$ports $1
+	nmap -sC -sV -vv - f -p$ports $1 | tee -a $2
 }
 
 #----- CTF's -----
@@ -190,4 +190,10 @@ thm(){
     cd ~/thm
     openvpn *.ovpn &>/dev/null &
     clear
+}
+
+#Get those flags ASAP
+ctf(){
+	cd ~/ctf
+	ll
 }
