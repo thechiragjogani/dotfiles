@@ -7,7 +7,7 @@ Warning: Please move your data from desktop, download, documents, pictures , and
 
 Steps to install:
 
-`1. cd ~ && git clone https://github.com/thechiragjogani/dotfiles
- 2. cd dotfiles
- 3. chmod 777 *
- 4. ./install.sh`
+1. `cd ~ && git clone https://github.com/thechiragjogani/dotfiles`
+2. `cd dotfiles`
+3. `chmod 777 *`
+4. `./install.sh`
