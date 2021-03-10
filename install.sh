@@ -1,5 +1,5 @@
 #!/bin/bash
-echo"Fixing GPG key errors if there are any!"
+echo "Fixing GPG key errors if there are any!"
 rm -rf /var/lib/apt/lists
 apt-get update -y
 apt-get install kali-archive-keyring git -y
