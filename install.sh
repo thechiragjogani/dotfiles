@@ -20,6 +20,7 @@ echo "Removing boilerplate home directories"
 rm -rf ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Public ~/Templates ~/Videos
 mkdir ~/htb
 mkdir ~/thm
+mkdir ~/ctf
 
 #Configuring the distro with my hotkeys and configuration files
 echo "Configuring the system with my hotkeys and keybindings"
