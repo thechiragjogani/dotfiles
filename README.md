@@ -13,7 +13,8 @@ Warning: Please move your data from desktop, download, documents, pictures , pub
 
 Steps to install:
 
-1. `cd ~ && git clone https://github.com/thechiragjogani/dotfiles`
-2. `cd dotfiles`
-3. `chmod 777 *`
-4. `./install.sh`
+1. Login as root user in kali with default installation.
+2. `cd ~ && git clone https://github.com/thechiragjogani/dotfiles`
+3. `cd dotfiles`
+4. `chmod 777 *`
+5. `./install.sh`
