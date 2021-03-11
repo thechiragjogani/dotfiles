@@ -236,6 +236,13 @@ cd ~/tools/
 wget "http://www.caesum.com/handbook/Stegsolve.jar" -O "stegsolve.jar"
 chmod +x "stegsolve.jar"
 
+echo "Downloading linux-exploit-suggester"
+wget "https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh" -O les.sh
+chmod +x "les.sh"
+
+echo "Downloading cupp"
+git clone https://github.com/Mebus/cupp
+
 echo "Downloading poor-mans-pentest scripts"
 cd ~/tools/
 git clone https://github.com/JohnHammond/poor-mans-pentest
