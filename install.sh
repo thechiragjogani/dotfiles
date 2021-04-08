@@ -62,7 +62,10 @@ source ~/.bash_aliases
 source ~/.bash_funcs
 
 dpkg --add-architecture amd64
-updater
+cd ~
+apt install python3 -y
+wget "https://github.com/IceM4nn/mirrorscript-v2/blob/master/mirrorscript-v2.py" -O sources.py
+python3 sources.py
 
 sudo sh ~/dotfiles/tools.sh
 
