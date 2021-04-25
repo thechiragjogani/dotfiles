@@ -1,7 +1,11 @@
 #!/bin/bash
 
 #Installing required packages
-sudo apt-get install -y nmap terminator git virtualbox-qt swig snapd libcurl4-openssl-dev htop awscli libssl-dev jq ruby-full libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev build-essential libssl-dev libffi-dev python-dev python-setuptools libldns-dev python3-pip rename dstat silversearcher-ag gcc vim tmux dtach gimp cmake mplayer sshpass libcompress-raw-lzma-perl dos2unix tcpflow scapy fcrackzip unrar steghide ffmpeg binwalk tesseract-ocr sqlite nikto zbar-tools qrencode pdfcrack vagrant hexedit foremost guake openvpn nmap curl exiftool sqlitebrowser wireshark idle xclip xautomation docker-ce docker-ce-cli containerd.io docker.io docker apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+sudo apt update -y
+sudo apt install python -y
+sudo apt install python3 -y
+sudo apt-get install -y nmap terminator git virtualbox-qt hcxtools swig snapd libcurl4-openssl-dev htop awscli libssl-dev jq ruby-full libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev build-essential libssl-dev libffi-dev python-dev python-setuptools libldns-dev python3-pip rename dstat silversearcher-ag gcc vim tmux dtach gimp cmake mplayer sshpass libcompress-raw-lzma-perl dos2unix tcpflow scapy fcrackzip unrar steghide ffmpeg binwalk tesseract-ocr sqlite nikto zbar-tools qrencode pdfcrack vagrant hexedit foremost guake openvpn nmap curl exiftool sqlitebrowser wireshark idle xclip xautomation docker-ce docker-ce-cli containerd.io docker.io docker apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+sudo apt install terminator docker docker* -y
 
 sudo systemctl enable docker
 
@@ -30,14 +34,14 @@ echo "done"
 
 #Installing SimpleScreenRecorder
 echo "Installing SimpleScreenRecorder"
-sudo apt-get install software-properties-common
-sudo apt update
+sudo apt-get install software-properties-common -y
+sudo apt update -y
 sudo apt-get install -y simplescreenrecorder
 
 #Installing VSCode
 echo "installing VSCode"
 cd ~
-wget "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"; mv download* code.deb
+wget "https://az764295.vo.msecnd.net/stable/3c4e3df9e89829dce27b7b5c24508306b151f30d/code_1.55.2-1618307277_amd64.deb"; mv download* code.deb
 dpkg -i code.deb
 rm -rf code.deb
 echo "done"
@@ -47,13 +51,15 @@ echo "Installing Sublime Text"
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 sudo apt-get install -y apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get install -y sublime-text
 
 echo "Installing Hopper..."
 wget "https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v4-4.5.29-Linux.deb"
 dpkg -i Hopper-v4-4.5.29-Linux.deb
 rm -rf Hopper-v4-4.5.29-Linux.deb
+source ~/.bashrc
+updater
 
 #install go
 source ~/.bashrc
@@ -102,7 +108,6 @@ echo "done"
 rm go1.13.5.linux-amd64.tar.gz
 
 #Creating a tools folder in ~/, all tools will be available here
-sudo rm -rf ~/tools/
 mkdir ~/tools
 cd ~/tools/
 sudo mv ~/dotfiles/docker.sh ~/tools/
@@ -144,6 +149,9 @@ echo "done"
 
 echo "installing linuxprivchecker"
 git clone https://github.com/sleventyeleven/linuxprivchecker
+cd ./linuxprivchecker
+python3 setup.py install
+cd ~/tools/
 echo "done"
 
 echo "installing Sublist3r"
@@ -151,6 +159,7 @@ git clone https://github.com/aboul3la/Sublist3r.git
 cd Sublist3r*
 pip install -r requirements.txt
 sudo python setup.py install
+sudo python3 setup.py install
 cd ~/tools/
 echo "done"
 
@@ -162,6 +171,10 @@ echo "done"
 
 echo "installing dirsearch"
 git clone https://github.com/maurosoria/dirsearch.git
+cd dirsearch
+pip3 install -r requirements.txt
+python3 setup.py install
+cd ~/tools/
 echo "done"
 
 echo "installing lazys3"
@@ -189,6 +202,7 @@ echo "installing massdns"
 git clone https://github.com/blechschmidt/massdns.git
 cd ~/tools/massdns
 make
+make install
 cd ~/tools/
 echo "done"
 
@@ -197,6 +211,7 @@ echo "installing asnlookup"
 git clone https://github.com/yassineaboukir/asnlookup.git
 cd ~/tools/asnlookup
 pip install -r requirements.txt
+pip3 install -r requirements.txt
 cd ~/tools/
 echo "done"
 
@@ -222,6 +237,7 @@ echo "installing Hash-Buster"
 cd ~/tools/
 git clone https://github.com/s0md3v/Hash-Buster.git
 cd Hash-Buster
+make
 make install
 echo "done"
 
@@ -230,6 +246,7 @@ cd ~/tools/
 git clone https://github.com/s0md3v/XSStrike.git
 cd XSStrike
 pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 echo "Downloading stegsolve.jar..."
 cd ~/tools/
@@ -249,6 +266,7 @@ git clone https://github.com/JohnHammond/poor-mans-pentest
 cd poor-mans-pentest
 mkdir /opt/pmp/
 mv ./* /opt/pmp/
+rm -rf ~/tools/poor-mans-pentest
 echo "export PATH=$PATH:/opt/pmp/" >> ~/.bashrc
 echo "done"
 
