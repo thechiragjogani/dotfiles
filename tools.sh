@@ -4,6 +4,7 @@
 sudo apt update -y
 sudo apt install python -y
 sudo apt install python3 -y
+sudo apt purge ntp -y
 sudo apt-get install -y nmap terminator git virtualbox-qt hcxtools swig snapd libcurl4-openssl-dev htop awscli libssl-dev jq ruby-full libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev build-essential libgmp-dev zlib1g-dev build-essential libssl-dev libffi-dev python-dev python-setuptools libldns-dev python3-pip rename dstat silversearcher-ag gcc vim tmux dtach gimp cmake mplayer sshpass libcompress-raw-lzma-perl dos2unix tcpflow scapy fcrackzip unrar steghide ffmpeg binwalk tesseract-ocr sqlite nikto zbar-tools qrencode pdfcrack vagrant hexedit foremost guake openvpn nmap curl exiftool sqlitebrowser wireshark idle xclip xautomation docker-ce docker-ce-cli containerd.io docker.io docker apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 sudo apt install terminator docker docker* -y
 
