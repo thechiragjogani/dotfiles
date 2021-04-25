@@ -50,6 +50,7 @@ sudo apt install snapd
 sudo service snapd start
 sudo snap install core
 sudo snap install whatsapp-for-linux
+sudo ln -s /var/lib/snapd/desktop/applications/ /usr/share/applications/snap
 
 #Installing flatpak and basic apps
 sudo apt install flatpak -y
