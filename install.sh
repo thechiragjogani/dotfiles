@@ -12,7 +12,7 @@ echo "Configuring pwnbox"
 cd ~
 git clone https://github.com/theGuildHall/pwnbox.git
 cd ~/pwnbox
-sudo cp *.sh /pt && sudo cp -R bloodhound/ /opt && sudo cp -R htb/ /opt && sudo cp -R icons/ /opt && sudo cp banner /opt
+sudo cp *.sh /opt && sudo cp -R bloodhound/ /opt && sudo cp -R htb/ /opt && sudo cp -R icons/ /opt && sudo cp banner /opt
 rm -rf ~/pwnbox
 source ~/.bashrc
 
@@ -63,11 +63,13 @@ source ~/.bash_funcs
 
 dpkg --add-architecture amd64
 cd ~
-apt install python3 -y
 wget "https://github.com/IceM4nn/mirrorscript-v2/blob/master/mirrorscript-v2.py" -O sources.py
 python3 sources.py
 
 sudo sh ~/dotfiles/tools.sh
+source ~/.bashrc
+
+updater
 
 read -p "Enter your ovpn file's full location: (Use pwd) (Ex - /home/user/downloads - Use this format exactly) " ovpndir; ovpn=$(ls $opendir | sed -ne 's/\([0-9]*\).ovpn/\1/p'); sudo cp $ovpndir/$ovpn.ovpn /etc/openvpn/; sudo mv /etc/openvpn/$ovpn.ovpn /etc/openvpn/ovpn.conf
 
