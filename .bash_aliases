@@ -3,7 +3,7 @@ alias nmapi="nmap -sC -sV -f"
 alias ins="sudo apt-get install"
 alias rem="sudo apt-get purge"
 alias ll='clear && ls --color=always -rthla'
-alias tools='cd ~/tools && ls'
+alias tools='cd ~/tools && ll'
 alias grep='grep --color=auto'
 alias gg='git grep -ni'
 alias phpunit='phpunit --colors'
