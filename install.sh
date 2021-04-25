@@ -44,6 +44,29 @@ sudo rm ~/.vimrc
 sudo mv ~/dotfiles/.vimrc ~/.vimrc
 echo "Done"
 
+#Installing snap store and whatsapp
+sudo apt update -y
+sudo apt install snapd
+sudo service snapd start
+sudo snap install core
+sudo snap install whatsapp-for-linux
+
+#Installing flatpak and basic apps
+sudo apt install flatpak -y
+sudo apt install gnome-software-plugin-flatpak -y
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpack install flathub com.anydesk.Anydesk -y
+flatpack install flathub com.github.joseexposito.touche -y
+flatpack install flathub com.github.vladimiry.ElectronMail -y
+flatpack install flathub io.github.liberodark.OpenDrive -y
+flatpack install flathub org.libreoffice.LibreOffice -y
+flatpack install flathub org.nmap.Zenmap -y
+flatpack install flathub org.qbittorrent.qBittorrent -y
+flatpack install flathub org.telegram.desktop -y
+flatpack install flathub org.tordini.flavio.Minitube -y
+flatpack install flathub org.videolan.VLC -y
+flatpack install flathub us.zoom.Zoom -y
+
 #Making Vim look good
 sudo mv ~/dotfiles/vim/ ~/.vim/
 mkdir -p ~/.vim/bundle
