@@ -69,8 +69,10 @@ python3 sources.py
 #Installing snap store and whatsapp
 sudo apt update -y
 sudo apt install snapd vlc
+sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/*
+sudo systemctl start snapd.service
+sudo systemctl enable snapd.service
 sed -i 's/geteuid/getppid/' /usr/bin/vlc
-sudo service snapd start
 sudo snap install core
 sudo snap install whatsapp-for-linux
 sudo ln -s /var/lib/snapd/desktop/applications/ /usr/share/applications/snap
