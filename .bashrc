@@ -64,6 +64,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/*
 sudo ln -s /var/lib/snapd/desktop/applications/ /usr/share/applications/snap
 source ~/.bash_aliases
 source ~/.bash_funcs
