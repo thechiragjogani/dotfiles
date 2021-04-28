@@ -42,6 +42,9 @@ sudo mv ~/dotfiles/.xinitrc ~/.xinitrc
 
 sudo rm ~/.vimrc
 sudo mv ~/dotfiles/.vimrc ~/.vimrc
+
+sudo rm ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+sudo mv ~/dotfiles/xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 echo "Done"
 
 #Making Vim look good
