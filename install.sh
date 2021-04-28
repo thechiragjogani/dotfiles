@@ -69,6 +69,7 @@ python3 sources.py
 #Installing snap store and whatsapp
 sudo apt update -y
 sudo apt install snapd vlc
+echo 'export PATH=$PATH:/snap/bin' >> ~/.bashrc
 sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/*
 sudo systemctl start snapd.service
 sudo systemctl enable snapd.service
