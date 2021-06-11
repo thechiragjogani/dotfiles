@@ -13,7 +13,7 @@ For switching to bash shell in kali, follow the mentioned steps:
 1. `kali-tweaks`
 2. Shell & Prompt
 3. Default Login Shell
-4. Select Bash and ok.
+4. Select Bash and apply.
 
 Warning: Please move your data from desktop, download, documents, pictures , public, templates and videos folders before running the script as they will be deleted.
 
