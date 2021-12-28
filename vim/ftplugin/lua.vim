@@ -1,1 +1,0 @@
-map <Leader>; :!lua %<CR>

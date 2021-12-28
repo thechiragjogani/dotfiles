@@ -1,1 +1,0 @@
-map <Leader>; :!python %<CR>

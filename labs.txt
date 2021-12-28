@@ -1,0 +1,9 @@
+raesene/bwapp
+bkimminich/juice-shop
+webgoat/webgoat-8.0
+webgoat/webgoat-7.1
+eystsen/vulnerablewordpress
+vulnerables/web-dvwa
+citizenstig/nowasp
+eystsen/altoro
+opendns/security-ninjas
