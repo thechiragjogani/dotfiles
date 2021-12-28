@@ -5,7 +5,7 @@ Kali with xfce installation(Default).
 
 ### Steps:
 
-1. `cd ~ && git clone https://github.com/thechiragjogani/dotfiles`
+1. `git clone https://github.com/thechiragjogani/dotfiles`
 1. `cd dotfiles`
 1. `chmod 777 *`
 1. `./install.sh`
