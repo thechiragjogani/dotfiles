@@ -21,6 +21,7 @@ cd $HOME/configs/ && sudo stow ack curl git input xinit xsession zsh
 source $HOME/.zshrc
 sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
 sudo mkdir $HOME/.config/{nvim,qterminal.org}/
+sudo mkdir $HOME/.config/nvim/plugged
 mkfile /etc/kali-motd/disable-all
 sudo stow -S nvim -t $HOME/.config/nvim/
 sudo stow -S qterminal -t $HOME/.config/qterminal.org/
