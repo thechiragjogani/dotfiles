@@ -16,7 +16,7 @@ sudo apt install kali-archive-keyring git stow python3 neovim curl nvim -y 2> /d
 echo "Configuring my hotkeys and keybindings!"
 mv $HOME/configs/ $HOME/configs.bak/
 cp -r configs/ $HOME; sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo chmod +x /tmp/tools.sh
-cd $HOME/configs/ && stow ack curl git input xinit xsession zsh
+cd $HOME/configs/ && sudo stow ack curl git input xinit xsession zsh
 source $HOME/.zshrc
 sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
 mkfile $HOME/.config/nvim/function.vim
@@ -27,7 +27,7 @@ mkfile $HOME/.config/nvim/plug.vim
 mkfile $HOME/.config/nvim/plugins.vim
 mkfile $HOME/.config/qterminal.org/qterminal.ini
 mkfile /etc/kali-motd/disable-all
-cd $HOME/configs/ && stow nvim qterminal
+cd $HOME/configs/ && sudo stow -S --adopt nvim qterminal -t $HOME
 mkdir $HOME/.dircolors
 
 #Installing pip and dependencies
@@ -43,7 +43,7 @@ echo "done"
 #Installing and configuring neovim
 sudo rm -rf $HOME/.vim
 sudo rm $HOME/.local/share/nvim/site/autoload/plug.vim
-curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sudo curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 /usr/bin/zsh -c "nvim -c 'PlugInstall | qall!'"
 cat /opt/coc-plug.txt | xargs -I {} /usr/bin/zsh -c "nvim -c 'CocInstall -sync coc-{} | qall!'"
 nvim +qall
