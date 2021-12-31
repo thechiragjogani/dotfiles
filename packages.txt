@@ -52,6 +52,7 @@ curl
 exiftool
 sqlitebrowser
 wireshark
+ranger
 idle
 xclip
 xautomation
