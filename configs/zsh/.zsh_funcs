@@ -1,4 +1,4 @@
-mkfile() { mkdir -p "$(dirname "$1")" && touch "$1";}
+mkfile() { mkdir -p "$(dirname "$1")" && sudo touch "$1";}
 updater() {
   sudo apt --fix-broken install -y 2> /dev/null;
   sudo apt-get update -y 2> /dev/null;

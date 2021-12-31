@@ -2,7 +2,6 @@ mako
 netifaces
 iptools
 pyopenssl
-pydispatch
 passlib
 dnspython
 XlsxWriter
