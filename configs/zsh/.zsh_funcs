@@ -1,3 +1,4 @@
+mkfile() { sudo mkdir -p "$(dirname "$1")" && sudo touch "$1";}
 updater() {
   sudo apt --fix-broken install -y 2> /dev/null;
   sudo apt-get update -y 2> /dev/null;
@@ -34,7 +35,7 @@ ex() {
             *.tar)       sudo tar -xf $1;;
             *.tbz2)      sudo tar -xjf $1;;
             *.tgz)       sudo tar -xzf $1;;
-            *.zip)       sudo unzip $1
+            *.zip)       sudo unzip $1;;
             *.Z)         sudo uncompress $1;;
             *.7z)        sudo 7z -x $1;;
             *)           echo $1 cannot be extracted;;

@@ -1,7 +1,6 @@
 #!/usr/bin/zsh
 echo "Removing boilerplate home directories!"
 sudo rm -rf $HOME/.vim $HOME/Pictures $HOME/Documents $HOME/Music $HOME/Videos; mkdir -p $HOME/ctf/htb $HOME/ctf/thm
-sudo touch /etc/kali-motd/disable-all
 
 #Updating sources with fast mirrors
 wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -
@@ -18,7 +17,11 @@ echo "Configuring my hotkeys and keybindings!"
 mv $HOME/configs/ $HOME/configs.bak/
 cp -r configs/ $HOME; sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo chmod +x /tmp/tools.sh
 cd $HOME/configs/
-stow --adopt ack curl git input nvim qterminal xinit xsession zsh; source $HOME/.zshrc
+stow ack curl git input xinit xsession zsh; source $HOME/.zshrc
+mkfile $HOME/.config/nvim/{function,general,init,leader,plug,plugins}.vim
+mkfile $HOME/.config/qterminal.org/qterminal.ini
+mkfile /etc/kali-motd/disable-all
+stow nvim qterminal
 mkdir $HOME/.dircolors
 
 #Installing pip and dependencies

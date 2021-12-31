@@ -1,1 +1,0 @@
-au BufRead,BufNewFile *.php4 set filetype=php
