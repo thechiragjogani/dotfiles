@@ -20,8 +20,8 @@ sudo cp -r configs/ $HOME; sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo c
 cd $HOME/configs/ && sudo stow ack curl git input xinit xsession zsh
 source $HOME/.zshrc
 sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
-sudo mkdir $HOME/.config/{nvim,qterminal.org}/
-sudo mkdir $HOME/.config/nvim/plugged
+mkdir $HOME/.config/{nvim,qterminal.org}/
+mkdir $HOME/.config/nvim/plugged
 mkfile /etc/kali-motd/disable-all
 sudo stow -S nvim -t $HOME/.config/nvim/
 sudo stow -S qterminal -t $HOME/.config/qterminal.org/
@@ -29,6 +29,7 @@ mkdir $HOME/.dircolors
 
 #Installing pip and dependencies
 echo "Installing pip and dependencies!"
+cd $HOME
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && sudo python3 get-pip.py
 curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py && sudo python2 get-pip.py
 sudo python2 -m pip install --upgrade pip
