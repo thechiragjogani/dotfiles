@@ -7,6 +7,9 @@ sudo timedatectl set-ntp "True"
 ins systemd-timesyncd
 sudo systemctl enable systemd-timesyncd
 
+#Installing nodejs
+curl -sL install-node.vercel.app/lts | sudo bash
+
 echo "Installing tools!"
 #Installing required packages
 cat /opt/packages.txt | xargs -I {} /usr/bin/zsh -c 'ins {} 2> /dev/null'

@@ -18,6 +18,7 @@ mv $HOME/configs/ $HOME/configs.bak/
 cp -r configs/ $HOME; sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo chmod +x /tmp/tools.sh
 cd $HOME/configs/
 stow ack curl git input xinit xsession zsh; source $HOME/.zshrc
+sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
 mkfile $HOME/.config/nvim/{function,general,init,leader,plug,plugins}.vim
 mkfile $HOME/.config/qterminal.org/qterminal.ini
 mkfile /etc/kali-motd/disable-all
@@ -33,9 +34,6 @@ sudo python3 -m pip install --upgrade pip
 pip install -r /opt/requirements.txt
 pip3 install -r /opt/requirements.txt
 echo "done"
-
-#Installing nodejs
-curl -sL install-node.vercel.app/lts | sudo bash
 
 #Installing and configuring neovim
 rm -rf "$HOME/.vim"
