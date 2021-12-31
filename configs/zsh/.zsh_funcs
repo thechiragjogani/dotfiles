@@ -9,7 +9,8 @@ updater() {
   sudo apt autoremove -y 2> /dev/null;
   sudo apt autoclean -y 2> /dev/null;
   sudo apt clean -y 2> /dev/null;
-  sudo apt-get install -f 2> /dev/null
+  sudo apt-get install -f 2> /dev/null;
+  cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
 }
 goodbye() {
   /opt/tools/pentestlab/pentestlab.sh stop bwapp;

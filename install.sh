@@ -40,7 +40,7 @@ curl -sL install-node.vercel.app/lts | sudo bash
 #Installing and configuring neovim
 rm -rf "$HOME/.vim"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' && nvim -c 'PlugInstall | qall!'
-cat /opt/coc-plug.txt | xargs -n1 -I {} /usr/bin/zsh -c "nvim -c 'CocInstall -sync coc-{} | qall!'"
+cat /opt/coc-plug.txt | xargs -I {} /usr/bin/zsh -c "nvim -c 'CocInstall -sync coc-{} | qall!'"
 nvim +qall
 
 # #Installing flatpak and apps

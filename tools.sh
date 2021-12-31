@@ -9,11 +9,11 @@ sudo systemctl enable systemd-timesyncd
 
 echo "Installing tools!"
 #Installing required packages
-cat /opt/packages.txt | xargs -n1 -I {} /usr/bin/zsh -c 'ins {} 2> /dev/null'
+cat /opt/packages.txt | xargs -I {} /usr/bin/zsh -c 'ins {} 2> /dev/null'
 
 sudo systemctl start docker && sudo systemctl enable docker
 sudo update-initramfs -u
-cat /opt/labs.txt | xargs -n1 -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
+cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
 
 wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O /opt/tools/locky.py
 
