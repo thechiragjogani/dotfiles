@@ -30,6 +30,7 @@ set completeopt=longest,menuone,preview " better completion
 set diffopt+=vertical
 set nobackup nowritebackup
 set termguicolors
+set background=dark " use dark mode
 colorscheme codedark
 
 " -- tmux integration ----------------------------------------------------------

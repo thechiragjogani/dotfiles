@@ -10,13 +10,14 @@ echo "deb http://kali.download/kali kali-rolling main contrib non-free\ndeb-src 
 echo "Fixing GPG key errors if there are any!"
 sudo rm -rf /var/lib/apt/lists
 sudo apt update 2>&1 1>/dev/null | sed -ne 's/.*NO_PUBKEY //p' | while read key; do if ! [[ ${keys[*]} =~ "$key" ]]; then sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys "$key"; keys+=("$key"); fi; done
-sudo apt update -y; sudo apt install kali-archive-keyring git stow python3 neovim curl -y
+sudo apt update -y 2> /dev/null
+sudo apt install kali-archive-keyring git stow python3 neovim curl -y 2> /dev/null
 
 #Configuring hotkeys and configuration files
 echo "Configuring my hotkeys and keybindings!"
 mv $HOME/configs/ $HOME/configs.bak/
 cp -r configs/ $HOME; sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo chmod +x /tmp/tools.sh
-cd $HOME/configs/; mkdir $HOME/.config/{nvim,qterminal.org}
+cd $HOME/configs/
 stow --adopt ack curl git input nvim qterminal xinit xsession zsh; source $HOME/.zshrc
 mkdir $HOME/.dircolors
 
@@ -35,8 +36,8 @@ curl -sL install-node.vercel.app/lts | sudo bash
 
 #Installing and configuring neovim
 rm -rf "$HOME/.vim"
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' && nvim +PlugInstall +qall
-cat /opt/coc-plug.txt | xargs -n1 -I {} /usr/bin/zsh -c "nvim -c 'CocInstall -sync coc-{}'"
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' && nvim -c 'PlugInstall | qall!'
+cat /opt/coc-plug.txt | xargs -n1 -I {} /usr/bin/zsh -c "nvim -c 'CocInstall -sync coc-{} | qall!'"
 nvim +qall
 
 # #Installing flatpak and apps
