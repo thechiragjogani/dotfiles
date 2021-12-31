@@ -44,5 +44,4 @@ nvim +qall
 # flatpack install flathub com.anydesk.Anydesk org.qbittorrent.qBittorrent us.zoom.Zoom -y
 /tmp/tools.sh
 updater
-clear
 echo "Now you can update and upgrade your kali machine anytime by typing \"updater\" command!"
