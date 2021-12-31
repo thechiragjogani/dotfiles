@@ -14,18 +14,13 @@ sudo apt install kali-archive-keyring git stow python3 neovim curl nvim -y 2> /d
 
 #Configuring hotkeys and configuration files
 echo "Configuring my hotkeys and keybindings!"
-mv $HOME/configs/ $HOME/configs.bak/
+sudo rm -rf $HOME/configs.bak/
+sudo mv $HOME/configs/ $HOME/configs.bak/
 sudo cp -r configs/ $HOME; sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo chmod +x /tmp/tools.sh
 cd $HOME/configs/ && sudo stow ack curl git input xinit xsession zsh
 source $HOME/.zshrc
 sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
-mkfile $HOME/.config/nvim/function.vim
-mkfile $HOME/.config/nvim/general.vim
-mkfile $HOME/.config/nvim/init.vim
-mkfile $HOME/.config/nvim/leader.vim
-mkfile $HOME/.config/nvim/plug.vim
-mkfile $HOME/.config/nvim/plugins.vim
-mkfile $HOME/.config/qterminal.org/qterminal.ini
+sudo mkdir $HOME/.config/{nvim,qterminal.org}/
 mkfile /etc/kali-motd/disable-all
 sudo stow -S nvim -t $HOME/.config/nvim/
 sudo stow -S qterminal -t $HOME/.config/qterminal.org/
