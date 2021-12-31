@@ -17,13 +17,12 @@ set tabstop=4 softtabstop=4 expandtab shiftround shiftwidth=4 smarttab
 set mouse=
 set wildmenu wildmode=longest:full,full wildignore+=.git wildignore+=*.DS_Store
 set nofoldenable
-set noesckeys
 set shellcmdflag=-ci
 set noerrorbells mousehide
 set linespace=2
 set startofline " move to first non-blank of the line when using PageUp/PageDown
 set scrolloff=8     " number of lines to keep above and below the cursor
-set splitright split
+set splitright splitbelow
 set nojoinspaces showmatch matchtime=4 matchpairs+=<:>
 set clipboard+=unnamed
 set completeopt=longest,menuone,preview " better completion

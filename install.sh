@@ -3,7 +3,7 @@ echo "Removing boilerplate home directories!"
 sudo rm -rf $HOME/.vim $HOME/Pictures $HOME/Documents $HOME/Music $HOME/Videos; mkdir -p $HOME/ctf/htb $HOME/ctf/thm
 
 #Updating sources with fast mirrors
-wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -
+wget -qO- https://deb.opera.com/archive.key | sudo apt-key add - 2> /dev/null
 echo "deb http://kali.download/kali kali-rolling main contrib non-free\ndeb-src http://kali.download/kali kali-rolling main contrib non-free\ndeb [arch=i386,amd64] https://deb.opera.com/opera-stable/ stable non-free" | sudo tee /etc/apt/sources.list
 
 echo "Fixing GPG key errors if there are any!"
@@ -39,7 +39,8 @@ curl -sL install-node.vercel.app/lts | sudo bash
 
 #Installing and configuring neovim
 rm -rf "$HOME/.vim"
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' && nvim -c 'PlugInstall | qall!'
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+/usr/bin/zsh -c "nvim -c 'PlugInstall | qall!'"
 cat /opt/coc-plug.txt | xargs -I {} /usr/bin/zsh -c "nvim -c 'CocInstall -sync coc-{} | qall!'"
 nvim +qall
 
