@@ -11,5 +11,14 @@
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact"
-  }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "markdown",
+    "html",
+    "css",
+    "text",
+    "bash",
+    "python"
+  ],
+  "coc.preferences.formatOnType": true
 }

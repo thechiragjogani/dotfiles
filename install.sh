@@ -14,6 +14,7 @@ sudo apt update -y; sudo apt install kali-archive-keyring git stow python3 neovi
 
 #Configuring hotkeys and configuration files
 echo "Configuring my hotkeys and keybindings!"
+mv $HOME/configs/ $HOME/configs.bak/
 cp -r configs/ $HOME; sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo chmod +x /tmp/tools.sh
 cd $HOME/configs/; stow ack curl git input nvim qterminal xinit xsession zsh; source $HOME/.zshrc
 mkdir $HOME/.dircolors

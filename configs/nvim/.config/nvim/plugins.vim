@@ -5,7 +5,7 @@ let g:NERDTreeAtoDeleteBuffer=1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrowExpandable = '⬏'
 let g:NERDTreeDirArrowCollapsible = '⬎'
-let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.idea$[[dir]]', '\.sass-cache$']
+let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.idea$[[dir]]', '\.sass-cache$', '\.pyc$', '__pycache__']
 
 let bufferline = get(g:, 'bufferline', {})
 let bufferline.add_in_buffer_number_order = v:true

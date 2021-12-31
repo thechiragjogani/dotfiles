@@ -8,6 +8,7 @@ map <leader>u <Esc>:GundoToggle<CR> " Toggle graphical undo
 map <F9> <Esc><C-W>gF<CR>:tabm<CR> " Open file under cursor in new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> " Open word under cursor as ctag in new tab
 map <F1> gg=G " Formats document
+map <leader>w :call CocAction('format')<CR>:w !sudo tee % >/dev/null<CR>
 noremap <silent> <leader>sw :%s/\\s\\+$//e<CR> " Remove trailing whitespaces
 noremap <silent> <leader>$ :%s/<C-V><CR>//e<CR> " <leader>$ fixes mixed EOLs (^M)
 noremap <silent><leader>jj :m+<CR> " move current line down
@@ -83,12 +84,17 @@ inoremap <silent> <leader>w <ESC>:w!<CR> " <leader>w writes the whole buffer to 
 inoremap <silent> <leader>W <ESC>:wa!<CR> " <leader>W writes all buffers
 inoremap jk <ESC>`^ " exit from insert mode without cursor movement
 inoremap <C-Space> <C-P> " <C-Space> triggers completion in insert mode
+" Map auto complete of (, ", ', [
+inoremap $1 ()<esc>i
+inoremap $2 []<esc>i
+inoremap $3 {}<esc>i
+inoremap $4 {<esc>o}<esc>O
+inoremap $q ''<esc>i
+inoremap $e ""<esc>i
 
 " Command mode Mappings
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-" sudo then write
-command! w :w !sudo tee % >/dev/null
 "save the session, save modified files, and exit
 command! Xs :mks! | :xa
 
@@ -102,3 +108,9 @@ vnoremap < <gv
 vnoremap . :normal .<CR> " make dot work in visual mode
 vnoremap v <C-V> " make v enter blockwise visual mode, and CTRL-V enter visual mode
 vnoremap <C-V> v " make v enter blockwise visual mode, and CTRL-V enter visual mode
+vnoremap $1 <esc>`>a)<esc>`<i(<esc>
+vnoremap $2 <esc>`>a]<esc>`<i[<esc>
+vnoremap $3 <esc>`>a}<esc>`<i{<esc>
+vnoremap $$ <esc>`>a"<esc>`<i"<esc>
+vnoremap $q <esc>`>a'<esc>`<i'<esc>
+vnoremap $e <esc>`>a`<esc>`<i`<esc>

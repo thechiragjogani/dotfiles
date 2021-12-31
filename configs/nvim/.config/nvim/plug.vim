@@ -14,4 +14,8 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'kyazdani42/nvim-web-devicons' " programming icons
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'sheerun/vim-polyglot' " language support
+    Plug 'junegunn/rainbow_parentheses.vim' " Coloured brackets
+    Plug 'tomasiser/vim-code-dark' " colorscheme
+    Plug 'mfussenegger/nvim-dap' " debugger
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " markdown preview
 call plug#end()

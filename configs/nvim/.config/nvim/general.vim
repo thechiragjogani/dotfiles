@@ -27,10 +27,10 @@ set splitright split
 set nojoinspaces showmatch matchtime=4 matchpairs+=<:>
 set clipboard+=unnamed
 set completeopt=longest,menuone,preview " better completion
-set cc=80 " color column at 80 chars
 set diffopt+=vertical
 set nobackup nowritebackup
 set termguicolors
+colorscheme codedark
 
 " -- tmux integration ----------------------------------------------------------
 " make arrow keys, home/end/pgup/pgdown, and function keys work when inside tmux
