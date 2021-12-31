@@ -15,18 +15,18 @@ sudo apt install kali-archive-keyring git stow python3 neovim curl nvim -y 2> /d
 #Configuring hotkeys and configuration files
 echo "Configuring my hotkeys and keybindings!"
 mv $HOME/configs/ $HOME/configs.bak/
-cp -r configs/ $HOME; sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo chmod +x /tmp/tools.sh
+sudo cp -r configs/ $HOME; sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo chmod +x /tmp/tools.sh
 cd $HOME/configs/ && sudo stow ack curl git input xinit xsession zsh
 source $HOME/.zshrc
 sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
-sudo mkdir -p "$(dirname "$HOME/.config/nvim/function.vim")" && sudo touch "$HOME/.config/nvim/function.vim"
-sudo mkdir -p "$(dirname "$HOME/.config/nvim/general.vim")" && sudo touch "$HOME/.config/nvim/general.vim"
-sudo mkdir -p "$(dirname "$HOME/.config/nvim/init.vim")" && sudo touch "$HOME/.config/nvim/init.vim"
-sudo mkdir -p "$(dirname "$HOME/.config/nvim/leader.vim")" && sudo touch "$HOME/.config/nvim/leader.vim"
-sudo mkdir -p "$(dirname "$HOME/.config/nvim/plug.vim")" && sudo touch "$HOME/.config/nvim/plug.vim"
-sudo mkdir -p "$(dirname "$HOME/.config/nvim/plugins.vim")" && sudo touch "$HOME/.config/nvim/plugins.vim"
-sudo mkdir -p "$(dirname "$HOME/.config/qterminal.org/qterminal.ini")" && sudo touch "$HOME/.config/qterminal.org/qterminal.ini"
-sudo mkdir -p "$(dirname "/etc/kali-motd/disable-all")" && sudo touch "/etc/kali-motd/disable-all"
+mkfile $HOME/.config/nvim/function.vim
+mkfile $HOME/.config/nvim/general.vim
+mkfile $HOME/.config/nvim/init.vim
+mkfile $HOME/.config/nvim/leader.vim
+mkfile $HOME/.config/nvim/plug.vim
+mkfile $HOME/.config/nvim/plugins.vim
+mkfile $HOME/.config/qterminal.org/qterminal.ini
+mkfile /etc/kali-motd/disable-all
 cd $HOME/configs/ && sudo stow -S --adopt nvim qterminal -t $HOME
 mkdir $HOME/.dircolors
 
