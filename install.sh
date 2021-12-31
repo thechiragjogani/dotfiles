@@ -27,7 +27,8 @@ mkfile $HOME/.config/nvim/plug.vim
 mkfile $HOME/.config/nvim/plugins.vim
 mkfile $HOME/.config/qterminal.org/qterminal.ini
 mkfile /etc/kali-motd/disable-all
-cd $HOME/configs/ && sudo stow -S --adopt nvim qterminal -t $HOME
+sudo stow -S nvim -t $HOME/.config/nvim/
+sudo stow -S qterminal -t $HOME/.config/qterminal.org/
 mkdir $HOME/.dircolors
 
 #Installing pip and dependencies
