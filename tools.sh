@@ -24,35 +24,35 @@ cd /tmp/; wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz && ex go1.13
 sudo mv go /usr/local
 
 echo "installing goimports" #import headers
-go get golang.org/x/tools/cmd/goimports
+go install golang.org/x/tools/cmd/goimports
 
 echo "installing gocode" #autocomplete go code
-go get github.com/nsf/gocode
+go install github.com/nsf/gocode
 
 echo "installing gobuster" #scanning hosts
-go get github.com/OJ/gobuster
+go install github.com/OJ/gobuster
 
 echo "Installing Aquatone" #mass subdomains enumeration
-go get github.com/michenriksen/aquatone
+go install github.com/michenriksen/aquatone
 
 echo "installing httprobe" #check if host has http or https
-go get -u github.com/tomnomnom/httprobe
+go install -u github.com/tomnomnom/httprobe
 echo "done"
 
 echo "installing unfurl"
-go get -u github.com/tomnomnom/unfurl
+go install -u github.com/tomnomnom/unfurl
 echo "done"
 
 echo "installing waybackurls" #archived webpages
-go get github.com/tomnomnom/waybackurls
+go install github.com/tomnomnom/waybackurls
 echo "done"
 
 echo "installing FFUF" #Fuzzing
-go get github.com/ffuf/ffuf
+go install github.com/ffuf/ffuf
 echo "done"
 
 #Creating a tools folder in /opt, all tools will be available here
-mkdir /opt/tools
+mkdir /opt/tools/
 
 echo "installing pentestlab"
 cd /opt/tools/
@@ -60,17 +60,17 @@ git clone https://github.com/eystsen/pentestlab.git
 
 echo "installing Decodify"
 cd /opt/tools/
-git clone https://github.com/s0md3v/decodify.git
-cd ./decodify
+git clone https://github.com/s0md3v/decodify
+cd decodify
 make install
 echo "done, run dcode on your terminal to decode any text"
 
 echo "installing JSParser"
 cd /opt/tools/
-git clone https://github.com/nahamsec/jsparser.git
-cd jsparser*
+git clone https://github.com/nahamsec/jsparser
+cd jsparser
 pip install -r requirements.txt
-sudo python setup.py install
+sudo python2 setup.py install
 echo "done"
 
 echo "installing LinEnum"
@@ -93,7 +93,7 @@ cd /opt/tools/
 git clone https://github.com/aboul3la/Sublist3r.git
 cd Sublist3r*
 pip install -r requirements.txt
-sudo python setup.py install
+sudo python2 setup.py install
 sudo python3 setup.py install
 echo "done"
 
@@ -117,7 +117,7 @@ cd /opt/tools/
 git clone https://github.com/guelfoweb/knock.git
 cd knock
 pip install -r requirements.txt
-sudo python setup.py install
+sudo python2 setup.py install
 echo "done"
 
 echo "installing lazyrecon"
@@ -153,8 +153,7 @@ echo "done"
 
 echo "downloading privilege-escalation-awesome-scripts-suite"
 cd /opt/tools/
-git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite.git
-mv privilege-escalation-awesome-scripts-suite peas
+git clone https://github.com/carlospolop/PEASS-ng
 echo "done"
 
 echo "downloading LinEnum"
@@ -167,12 +166,11 @@ git clone https://github.com/s0md3v/Hash-Buster.git
 cd Hash-Buster
 make
 make install
-cd .. && rm -rf ./Hash-Buster/
 echo "done"
 
 echo "installing XSStrike"
 cd /opt/tools/
-git clone https://github.com/s0md3v/XSStrike.git
+git clone https://github.com/s0md3v/XSStrike
 cd XSStrike
 pip install -r requirements.txt
 pip3 install -r requirements.txt
@@ -195,9 +193,9 @@ echo "Downloading poor-mans-pentest scripts"
 cd /opt/tools/
 git clone https://github.com/JohnHammond/poor-mans-pentest
 cd poor-mans-pentest
-mkdir /opt/pmp/
-mv ./* /opt/pmp/
-rm -rf /opt/tools/poor-mans-pentest
+sudo mkdir /opt/pmp/
+sudo mv ./* /opt/pmp/
+sudo rm -rf /opt/tools/poor-mans-pentest
 echo "done"
 
 echo "Done! All tools are set up in /opt/tools"
