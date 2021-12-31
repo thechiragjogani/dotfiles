@@ -28,3 +28,9 @@ let bufferline.maximum_length = 30
 let bufferline.semantic_letters = v:true
 let bufferline.letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP'
 let bufferline.no_name_title = v:null
+
+let g:fruzzy#usenative = 1
+let g:fruzzy#sortonempty = 1
+
+let g:ctrlp_match_func = {'match': 'fruzzy#ctrlp#matcher'}
+let g:ctrlp_match_current_file = 1 " to include current file in matches

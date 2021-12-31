@@ -10,7 +10,7 @@ echo "Fixing GPG key errors if there are any!"
 sudo rm -rf /var/lib/apt/lists
 sudo apt update 2>&1 1>/dev/null | sed -ne 's/.*NO_PUBKEY //p' | while read key; do if ! [[ ${keys[*]} =~ "$key" ]]; then sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys "$key"; keys+=("$key"); fi; done
 sudo apt update -y 2> /dev/null
-sudo apt install kali-archive-keyring git stow python3 neovim curl -y 2> /dev/null
+sudo apt install kali-archive-keyring git stow python3 neovim curl nvim -y 2> /dev/null
 
 #Configuring hotkeys and configuration files
 echo "Configuring my hotkeys and keybindings!"
