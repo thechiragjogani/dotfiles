@@ -1,14 +1,5 @@
 #!/usr/bin/zsh
 source ~/.zshrc
-#Installing pip and dependencies
-echo "Installing pip and dependencies!"
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && sudo python3 get-pip.py
-curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py && sudo python2 get-pip.py
-sudo python2 -m pip install --upgrade pip
-sudo python3 -m pip install --upgrade pip
-pip install -r /opt/requirements.txt
-pip3 install -r /opt/requirements.txt
-echo "done"
 
 rem ntp
 sudo timedatectl set-timezone "Asia/Kolkata"
@@ -23,6 +14,8 @@ cat /opt/packages.txt | xargs -n1 -I {} /usr/bin/zsh -c 'ins {} 2> /dev/null'
 sudo systemctl start docker && sudo systemctl enable docker
 sudo update-initramfs -u
 cat /opt/labs.txt | xargs -n1 -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
+
+wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O /opt/tools/locky.py
 
 #install go
 sudo rm -rf /usr/local/go

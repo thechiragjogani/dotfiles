@@ -185,7 +185,7 @@ toggle_oneline_prompt(){
     zle reset-prompt
 }
 zle -N toggle_oneline_prompt
-bindkey ^P toggle_oneline_prompt
+bindkey ^P toggle_oneline_prompt()
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -250,8 +250,7 @@ fi
 
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go:$HOME/codes/go
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.local/bin:/usr/.local/bin:/snap/bin:$GOPATH/bin:$GOROOT/bin:/opt/tools/**/^*.bak:/opt/pmp/:$PATH
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin/:/opt/tools:/opt/pmp/:$GOPATH/bin:$GOROOT/bin
 export EDITOR=nvim
-
 source $HOME/.zsh_aliases
 source $HOME/.zsh_funcs

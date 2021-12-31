@@ -1,0 +1,15 @@
+{
+  "coc.source.emoji.filetypes": [
+    "markdown",
+    "html",
+    "css",
+    "text",
+    "bash",
+    "python"
+  ],
+  "project.rootPatterns": [".git", ".svn", ".root", ".project", ".hg"],
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  }
+}

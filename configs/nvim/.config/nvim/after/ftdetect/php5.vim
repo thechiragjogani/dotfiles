@@ -1,0 +1,1 @@
+au BufRead,BufNewFile *.php5 set filetype=php

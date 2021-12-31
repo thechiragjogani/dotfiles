@@ -9,3 +9,5 @@ XlsxWriter
 requests
 pwntools
 argparse
+flake8
+pynvim
