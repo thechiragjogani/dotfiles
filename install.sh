@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 echo "Removing boilerplate home directories!"
-sudo rm -rf $HOME/* $HOME/.vim; mkdir -p $HOME/ctf/htb $HOME/ctf/thm
+sudo rm -rf $HOME/.vim $HOME/Pictures $HOME/Documents $HOME/Music $HOME/Videos; mkdir -p $HOME/ctf/htb $HOME/ctf/thm
 sudo touch /etc/kali-motd/disable-all
 
 #Updating sources with fast mirrors
