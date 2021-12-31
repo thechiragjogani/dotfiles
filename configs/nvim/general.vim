@@ -30,6 +30,7 @@ set diffopt+=vertical
 set nobackup nowritebackup
 set termguicolors
 set background=dark " use dark mode
+colorscheme codedark
 
 " -- tmux integration ----------------------------------------------------------
 " make arrow keys, home/end/pgup/pgdown, and function keys work when inside tmux

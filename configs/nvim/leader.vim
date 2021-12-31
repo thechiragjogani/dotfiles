@@ -8,7 +8,7 @@ map <leader>u <Esc>:GundoToggle<CR> " Toggle graphical undo
 map <F9> <Esc><C-W>gF<CR>:tabm<CR> " Open file under cursor in new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> " Open word under cursor as ctag in new tab
 map <F1> gg=G " Formats document
-map <leader>w :call CocAction('format')<CR>:w !sudo tee % >/dev/null<CR>
+map <leader>w :call CocAction('format')<CR>:silent! write !SUDO_ASKPASS=`which ssh-askpass` sudo tee % >/dev/null' <bar> edit!
 noremap <silent> <leader>sw :%s/\\s\\+$//e<CR> " Remove trailing whitespaces
 noremap <silent> <leader>$ :%s/<C-V><CR>//e<CR> " <leader>$ fixes mixed EOLs (^M)
 noremap <silent><leader>jj :m+<CR> " move current line down
@@ -47,11 +47,6 @@ nnoremap <leader>9 9gt " Tab 9
 nnoremap <silent> <leader>q :wq!<CR> " <leader>q quits the current window
 nnoremap <silent> yf :let @+=expand('%:p')<CR> " copies filepath to clipboard
 nnoremap <silent> <leader><Enter> :Buffers<CR> " list buffers
-" Find files using Telescope
-nnoremap <leader>ff <cmd>Telescope find_files{find_command={"rg","--files","--hidden","--follow"}}<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr> " Grep using Telescope
-nnoremap <leader>fb <cmd>Telescope buffers<cr> " Find buffers using Telescope
-nnoremap <leader>fh <cmd>Telescope help_tags<cr> " Find help tags using Telescope
 nnoremap <silent> <expr> <leader>n g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>" " Toggle nerdtree at current file
 " Move to previous/next buffer
 nnoremap <silent>    <A-,> :BufferPrevious<CR>

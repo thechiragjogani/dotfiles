@@ -64,3 +64,4 @@ simplescreenrecorder
 opera-stable
 vlc
 docker*
+ssh-askpass
