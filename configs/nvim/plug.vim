@@ -16,5 +16,5 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'mfussenegger/nvim-dap' " debugger
     Plug 'raghur/fruzzy', {'do': { -> fruzzy#install()}}
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']} " markdown preview
-    Plug 'suda.vim' " sudo write
+    Plug 'lambdalisue/suda.vim' " sudo write
 call plug#end()
