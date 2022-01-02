@@ -24,8 +24,14 @@ source $HOME/.zshrc
 sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
 mkdir $HOME/.config/{nvim,qterminal.org}/
 mkdir $HOME/.config/nvim/plugged
-mkdir -p /etc/kali-motd/
-touch /etc/kali-motd/disable-all
+sudo mkdir -p /etc/kali-motd/ && sudo touch /etc/kali-motd/disable-all
+
+#Installing and configuring neovim
+sudo rm -rf $HOME/.vim
+/usr/bin/zsh -c "nvim -c '!curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | PlugInstall | qall!'"
+cat /opt/coc-plug.txt | xargs -I {} /usr/bin/zsh -c "nvim -c 'CocInstall -sync coc-{} | qall!'"
+nvim +qall
+
 sudo stow -S nvim -t $HOME/.config/nvim/
 sudo stow -S qterminal -t $HOME/.config/qterminal.org/
 mkdir $HOME/.dircolors
@@ -33,19 +39,13 @@ mkdir $HOME/.dircolors
 #Installing pip and dependencies
 echo "Installing pip and dependencies!"
 cd $HOME
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && sudo python3 get-pip.py
-curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py && sudo python2 get-pip.py
+wget https://bootstrap.pypa.io/get-pip.py && sudo python3 get-pip.py
+wget https://bootstrap.pypa.io/pip/2.7/get-pip.py && sudo python2 get-pip.py
 sudo python2 -m pip install --upgrade pip
 sudo python3 -m pip install --upgrade pip
 pip install -r /opt/requirements.txt
 pip3 install -r /opt/requirements.txt
 echo "done"
-
-#Installing and configuring neovim
-sudo rm -rf $HOME/.vim
-/usr/bin/zsh -c "nvim -c '!curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | PlugInstall | qall!'"
-cat /opt/coc-plug.txt | xargs -I {} /usr/bin/zsh -c "nvim -c 'CocInstall -sync coc-{} | qall!'"
-nvim +qall
 
 # #Installing flatpak and apps
 # sudo apt install flatpak gnome-software-plugin-flatpak -y
