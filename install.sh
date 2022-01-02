@@ -26,9 +26,17 @@ mkdir $HOME/.config/{nvim,qterminal.org}/
 mkdir $HOME/.config/nvim/plugged
 sudo mkdir -p /etc/kali-motd/
 sudo touch /etc/kali-motd/disable-all
-sudo stow -S nvim-plug -t $HOME/.config/nvim/
 sudo stow -S qterminal -t $HOME/.config/qterminal.org/
 mkdir $HOME/.dircolors
+
+#Installing and configuring neovim
+sudo stow -S nvim-plug -t $HOME/.config/nvim/
+sudo rm -rf $HOME/.vim
+sudo rm $HOME/.local/share/nvim/site/autoload/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+/usr/bin/zsh -c "nvim -c 'so $HOME/.config/nvim/plug.vim | PlugInstall | qall!'"
+nvim +qall
+sudo stow -S nvim -t $HOME/.config/nvim/
 
 #Installing pip and dependencies
 echo "Installing pip and dependencies!"
@@ -40,15 +48,6 @@ sudo python3 -m pip install --upgrade pip
 pip install -r /opt/requirements.txt
 pip3 install -r /opt/requirements.txt
 echo "done"
-
-#Installing and configuring neovim
-sudo rm -rf $HOME/.vim
-sudo rm $HOME/.local/share/nvim/site/autoload/plug.vim
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-/usr/bin/zsh -c "nvim -c 'PlugInstall | qall!'"
-cat /opt/coc-plug.txt | xargs -I {} /usr/bin/zsh -c "nvim -c 'CocInstall -sync coc-{} | qall!'"
-nvim +qall
-sudo stow -S nvim -t $HOME/.config/nvim/
 
 # #Installing flatpak and apps
 # sudo apt install flatpak gnome-software-plugin-flatpak -y
