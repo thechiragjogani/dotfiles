@@ -10,3 +10,4 @@ pwntools
 argparse
 flake8
 pynvim
+msgpack

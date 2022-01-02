@@ -1,6 +1,4 @@
 css
-docker
-dot-complete
 emmet
 emoji
 eslint
@@ -20,5 +18,3 @@ python
 sh
 tsserver
 vimlsp
-xml
-yaml
