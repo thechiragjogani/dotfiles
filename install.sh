@@ -43,7 +43,7 @@ echo "done"
 #Installing and configuring neovim
 sudo rm -rf $HOME/.vim
 sudo rm $HOME/.local/share/nvim/site/autoload/plug.vim
-curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 /usr/bin/zsh -c "nvim -c 'PlugInstall | qall!'"
 cat /opt/coc-plug.txt | xargs -I {} /usr/bin/zsh -c "nvim -c 'CocInstall -sync coc-{} | qall!'"
 nvim +qall
