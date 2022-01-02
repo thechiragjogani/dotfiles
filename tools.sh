@@ -11,9 +11,6 @@ sudo systemctl enable systemd-timesyncd
 curl -sL install-node.vercel.app/lts | sudo bash
 
 echo "Installing tools!"
-#Installing required packages
-cat /opt/packages.txt | xargs -I {} /usr/bin/zsh -c 'ins {} 2> /dev/null'
-
 sudo systemctl start docker && sudo systemctl enable docker
 sudo update-initramfs -u
 cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'

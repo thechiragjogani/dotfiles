@@ -61,5 +61,6 @@ nvim -c "CocInstall coc-css coc-emmet coc-emoji coc-eslint coc-explorer coc-git 
 nvim -c "CocInstall coc-tsserver coc-vimlsp"
 
 updater
-
+#Installing required packages
+cat /opt/packages.txt | xargs -I {} /usr/bin/zsh -c 'sudo apt install -y {} 2> /dev/null'
 echo "Now you can update and upgrade your kali machine anytime by typing \"updater\" command!"
