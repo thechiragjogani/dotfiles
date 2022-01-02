@@ -24,7 +24,8 @@ source $HOME/.zshrc
 sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
 mkdir $HOME/.config/{nvim,qterminal.org}/
 mkdir $HOME/.config/nvim/plugged
-mkfile /etc/kali-motd/disable-all
+mkdir -p /etc/kali-motd/
+touch /etc/kali-motd/disable-all
 sudo stow -S nvim -t $HOME/.config/nvim/
 sudo stow -S qterminal -t $HOME/.config/qterminal.org/
 mkdir $HOME/.dircolors
@@ -42,8 +43,7 @@ echo "done"
 
 #Installing and configuring neovim
 sudo rm -rf $HOME/.vim
-curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-/usr/bin/zsh -c "nvim -c 'PlugInstall | qall!'"
+/usr/bin/zsh -c "nvim -c '!curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | PlugInstall | qall!'"
 cat /opt/coc-plug.txt | xargs -I {} /usr/bin/zsh -c "nvim -c 'CocInstall -sync coc-{} | qall!'"
 nvim +qall
 
