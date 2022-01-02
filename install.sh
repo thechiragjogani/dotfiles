@@ -53,6 +53,13 @@ echo "done"
 # sudo apt install flatpak gnome-software-plugin-flatpak -y
 # flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # flatpack install flathub com.anydesk.Anydesk org.qbittorrent.qBittorrent us.zoom.Zoom -y
+
 /tmp/tools.sh
+
+nvim -c "CocInstall coc-css coc-emmet coc-emoji coc-eslint coc-explorer coc-git coc-go coc-grammarly coc-html coc-import-cost coc-java coc-json coc-markdownlint coc-phpls coc-powershell coc-prettier coc-python coc-sh"
+
+nvim -c "CocInstall coc-tsserver coc-vimlsp"
+
 updater
+
 echo "Now you can update and upgrade your kali machine anytime by typing \"updater\" command!"
