@@ -17,8 +17,9 @@ sudo apt install -y kali-archive-keyring git stow python3 neovim curl python3-pi
 echo "Configuring my hotkeys and keybindings!"
 sudo rm -rf $HOME/configs.bak/
 sudo mv $HOME/configs/ $HOME/configs.bak/
+sudo rm $HOME/.zsh*
 sudo cp -r configs/ $HOME; sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo chmod +x /tmp/tools.sh
-cd $HOME/configs/ && sudo stow ack curl git input xinit xsession zsh
+cd $HOME/configs/ && sudo stow ack curl git input xinit xsession zsh -t $HOME
 source $HOME/.zshrc
 sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
 mkdir $HOME/.config/{nvim,qterminal.org}/
