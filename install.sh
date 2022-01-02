@@ -4,7 +4,8 @@ sudo rm -rf $HOME/.vim $HOME/Pictures $HOME/Documents $HOME/Music $HOME/Videos; 
 
 #Updating sources with fast mirrors
 wget -qO- https://deb.opera.com/archive.key | sudo apt-key add - 2> /dev/null
-echo "deb http://kali.download/kali kali-rolling main contrib non-free\ndeb-src http://kali.download/kali kali-rolling main contrib non-free\ndeb [arch=i386,amd64] https://deb.opera.com/opera-stable/ stable non-free" | sudo tee /etc/apt/sources.list
+
+echo "deb https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free\ndeb-src https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free\ndeb https://mirrors.ocf.berkeley.edu/debian sid main contrib non-free\ndeb-src https://mirrors.ocf.berkeley.edu/debian sid main contrib non-free\ndeb [arch=i386,amd64] https://deb.opera.com/opera-stable/ stable non-free" | sudo tee /etc/apt/sources.list
 
 echo "Fixing GPG key errors if there are any!"
 sudo rm -rf /var/lib/apt/lists
