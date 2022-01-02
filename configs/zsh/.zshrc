@@ -249,7 +249,7 @@ fi
 # sudo ln -s /var/lib/snapd/desktop/applications/ /usr/share/applications/snap
 
 export GOROOT=/usr/local/go
-export GOPATH=$HOME/go:$HOME/codes/go
+export GOPATH=/opt/tools:$HOME/codes/go
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/bin/:/opt/tools:/opt/pmp/:$GOPATH/bin:$GOROOT/bin
 export EDITOR=nvim
 source $HOME/.zsh_aliases

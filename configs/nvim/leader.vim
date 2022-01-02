@@ -8,7 +8,16 @@ map <leader>u <Esc>:GundoToggle<CR> " Toggle graphical undo
 map <F9> <Esc><C-W>gF<CR>:tabm<CR> " Open file under cursor in new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> " Open word under cursor as ctag in new tab
 map <F1> gg=G " Formats document
-map <leader>w :call CocAction('format')<CR>:silent! write !SUDO_ASKPASS=`which ssh-askpass` sudo tee % >/dev/null' <bar> edit!
+map <leader>w :SudaWrite<CR>
+map <leader>1 1gt " Tab 1
+map <leader>2 2gt " Tab 2
+map <leader>3 3gt " Tab 3
+map <leader>4 4gt " Tab 4
+map <leader>5 5gt " Tab 5
+map <leader>6 6gt " Tab 6
+map <leader>7 7gt " Tab 7
+map <leader>8 8gt " Tab 8
+map <leader>9 9gt " Tab 9
 noremap <silent> <leader>sw :%s/\\s\\+$//e<CR> " Remove trailing whitespaces
 noremap <silent> <leader>$ :%s/<C-V><CR>//e<CR> " <leader>$ fixes mixed EOLs (^M)
 noremap <silent><leader>jj :m+<CR> " move current line down
@@ -35,15 +44,6 @@ nnoremap v <C-V> " make v enter blockwise visual mode, and CTRL-V enter visual m
 nnoremap <C-V> v " make v enter blockwise visual mode, and CTRL-V enter visual mode
 nnoremap <C-s> <C-w>s " split current window horizontally
 nnoremap <leader>t <Esc>:tabe " New Tab
-nnoremap <leader>1 1gt " Tab 1
-nnoremap <leader>2 2gt " Tab 2
-nnoremap <leader>3 3gt " Tab 3
-nnoremap <leader>4 4gt " Tab 4
-nnoremap <leader>5 5gt " Tab 5
-nnoremap <leader>6 6gt " Tab 6
-nnoremap <leader>7 7gt " Tab 7
-nnoremap <leader>8 8gt " Tab 8
-nnoremap <leader>9 9gt " Tab 9
 nnoremap <silent> <leader>q :wq!<CR> " <leader>q quits the current window
 nnoremap <silent> yf :let @+=expand('%:p')<CR> " copies filepath to clipboard
 nnoremap <silent> <leader><Enter> :Buffers<CR> " list buffers

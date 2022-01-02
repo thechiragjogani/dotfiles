@@ -1,0 +1,8 @@
+github.com/ffuf/ffuf
+github.com/michenriksen/aquatone
+github.com/nsf/gocode
+github.com/OJ/gobuster
+github.com/tomnomnom/httprobe
+github.com/tomnomnom/unfurl
+github.com/tomnomnom/waybackurls
+golang.org/x/tools/cmd/goimports
