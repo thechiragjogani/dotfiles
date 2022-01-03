@@ -9,15 +9,6 @@ map <F9> <Esc><C-W>gF<CR>:tabm<CR> " Open file under cursor in new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> " Open word under cursor as ctag in new tab
 map <F1> gg=G " Formats document
 map <leader>w :SudaWrite<CR>
-map <leader>1 1gt " Tab 1
-map <leader>2 2gt " Tab 2
-map <leader>3 3gt " Tab 3
-map <leader>4 4gt " Tab 4
-map <leader>5 5gt " Tab 5
-map <leader>6 6gt " Tab 6
-map <leader>7 7gt " Tab 7
-map <leader>8 8gt " Tab 8
-map <leader>9 9gt " Tab 9
 noremap <silent> <leader>sw :%s/\\s\\+$//e<CR> " Remove trailing whitespaces
 noremap <silent> <leader>$ :%s/<C-V><CR>//e<CR> " <leader>$ fixes mixed EOLs (^M)
 noremap <silent><leader>jj :m+<CR> " move current line down
@@ -44,10 +35,12 @@ nnoremap v <C-V> " make v enter blockwise visual mode, and CTRL-V enter visual m
 nnoremap <C-V> v " make v enter blockwise visual mode, and CTRL-V enter visual mode
 nnoremap <C-s> <C-w>s " split current window horizontally
 nnoremap <leader>t <Esc>:tabe " New Tab
+nnoremap <leader>v <cmd>CHADopen<cr>
+nnoremap <leader>l <cmd>call setqflist([])<cr>
 nnoremap <silent> <leader>q :wq!<CR> " <leader>q quits the current window
 nnoremap <silent> yf :let @+=expand('%:p')<CR> " copies filepath to clipboard
 nnoremap <silent> <leader><Enter> :Buffers<CR> " list buffers
-nnoremap <silent> <expr> <leader>n g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>" " Toggle nerdtree at current file
+" nnoremap <silent> <expr> <leader>n g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>" " Toggle nerdtree at current file
 " Move to previous/next buffer
 nnoremap <silent>    <A-,> :BufferPrevious<CR>
 nnoremap <silent>    <A-.> :BufferNext<CR>
@@ -55,16 +48,16 @@ nnoremap <silent>    <A-.> :BufferNext<CR>
 nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
 nnoremap <silent>    <A->> :BufferMoveNext<CR>
 " Goto buffer in position...
-nnoremap <silent>    <A-1> :BufferGoto 1<CR>
-nnoremap <silent>    <A-2> :BufferGoto 2<CR>
-nnoremap <silent>    <A-3> :BufferGoto 3<CR>
-nnoremap <silent>    <A-4> :BufferGoto 4<CR>
-nnoremap <silent>    <A-5> :BufferGoto 5<CR>
-nnoremap <silent>    <A-6> :BufferGoto 6<CR>
-nnoremap <silent>    <A-7> :BufferGoto 7<CR>
-nnoremap <silent>    <A-8> :BufferGoto 8<CR>
-nnoremap <silent>    <A-9> :BufferLast<CR>
-nnoremap <silent>    <A-p> :BufferPin<CR>
+nnoremap <silent>    <leader>1 :BufferGoto 1<CR>
+nnoremap <silent>    <leader>2 :BufferGoto 2<CR>
+nnoremap <silent>    <leader>3 :BufferGoto 3<CR>
+nnoremap <silent>    <leader>4 :BufferGoto 4<CR>
+nnoremap <silent>    <leader>5 :BufferGoto 5<CR>
+nnoremap <silent>    <leader>6 :BufferGoto 6<CR>
+nnoremap <silent>    <leader>7 :BufferGoto 7<CR>
+nnoremap <silent>    <leader>8 :BufferGoto 8<CR>
+nnoremap <silent>    <leader>9 :BufferLast<CR>
+nnoremap <silent>    <leader>p :BufferPin<CR>
 nnoremap <silent>    <leader>bc :BufferClose<CR>
 " Magic buffer-picking mode
 nnoremap <silent> <leader>sb    :BufferPick<CR>
@@ -73,6 +66,11 @@ nnoremap <silent> <leader>bb :BufferOrderByBufferNumber<CR>
 nnoremap <silent> <leader>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <leader>bl :BufferOrderByLanguage<CR>
 nnoremap <silent> <leader>bw :BufferOrderByWindowNumber<CR>
+" telescope bindings
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Insert mode Mappings
 inoremap <silent> <leader>w <ESC>:w!<CR> " <leader>w writes the whole buffer to the current file

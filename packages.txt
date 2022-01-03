@@ -5,6 +5,7 @@ build-essential
 ca-certificates
 cmake
 containerd.io
+universal-ctags
 curl
 docker
 dos2unix
