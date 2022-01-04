@@ -3,9 +3,8 @@ echo "Removing boilerplate home directories!"
 sudo rm -rf $HOME/{.vim,Downloads,Pictures,Documents,Music,Videos}; mkdir -p $HOME/ctf/{htb,thm}/
 
 #Updating sources with fast mirrors
-wget -qO- https://deb.opera.com/archive.key | sudo apt-key add - 2> /dev/null
 
-echo "deb https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free\ndeb-src https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free\ndeb https://mirrors.ocf.berkeley.edu/debian sid main contrib non-free\ndeb-src https://mirrors.ocf.berkeley.edu/debian sid main contrib non-free\ndeb [arch=i386,amd64] https://deb.opera.com/opera-stable/ stable non-free" | sudo tee /etc/apt/sources.list
+echo "deb https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free\ndeb-src https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free\ndeb https://mirrors.ocf.berkeley.edu/debian sid main contrib non-free\ndeb-src https://mirrors.ocf.berkeley.edu/debian sid main contrib non-free" | sudo tee /etc/apt/sources.list
 
 echo "Fixing GPG key errors if there are any!"
 sudo rm -rf /var/lib/apt/lists
@@ -37,6 +36,7 @@ sudo rm -rf $HOME/.vim
 sudo rm $HOME/.local/share/nvim/site/autoload/plug.vim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 /usr/bin/zsh -c "nvim -c 'so $HOME/.config/nvim/plug.vim | PlugInstall | qall!'"
+nvim -c "call mkdp#util#install()"
 nvim +qall
 sudo mkdir -p $HOME/.config/nvim/lua
 sudo stow -S nvim -t $HOME/.config/nvim/
@@ -56,10 +56,6 @@ echo "done"
 # sudo apt install flatpak gnome-software-plugin-flatpak -y
 # flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # flatpack install flathub com.anydesk.Anydesk org.qbittorrent.qBittorrent us.zoom.Zoom -y
-
-nvim -c "CHADdeps"
-nvim -c "COQdeps"
-nvim -c "COQnow [--shut-up]"
 
 /tmp/tools.sh
 
