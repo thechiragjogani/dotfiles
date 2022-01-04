@@ -55,9 +55,11 @@ echo "done"
 # flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # flatpack install flathub com.anydesk.Anydesk org.qbittorrent.qBittorrent us.zoom.Zoom -y
 
+nvim -c "COQnow [--shut-up]"
+
 /tmp/tools.sh
 
-nvim -c "COQnow [--shut-up]"
+
 
 updater
 #Installing required packages
