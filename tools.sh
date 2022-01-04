@@ -36,7 +36,7 @@ echo "installing unfurl"
 echo "installing waybackurls" #archived webpages
 echo "installing FFUF" #Fuzzing
 
-cat /opt/gotools.txt | xargs -I {} /usr/bin/zsh -c 'sudo go install {}'
+cat /opt/gotools.txt | xargs -I {} /usr/bin/zsh -c 'go install {}'
 
 echo "Downloading tools from git!"
 cd /opt/tools/
