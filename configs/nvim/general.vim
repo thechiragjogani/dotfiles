@@ -11,7 +11,7 @@ set noshowmode showcmd cmdheight=1
 set ruler nu rnu
 set nowrap autoindent
 set ignorecase smartcase gdefault showmatch
-set hidden autowrite autowriteall nobomb switchbuf=usetab fsync
+set hidden autowrite autowriteall nobomb switchbuf=usetab fsync buftype=
 set backspace=eol,start,indent
 set tabstop=4 softtabstop=4 expandtab shiftround shiftwidth=4 smarttab
 set mouse=
