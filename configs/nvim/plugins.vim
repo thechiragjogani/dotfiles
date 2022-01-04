@@ -23,3 +23,5 @@ let bufferline.letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP'
 let bufferline.no_name_title = v:null
 
 let g:coq_settings = { 'auto_start': 'shut-up' }
+
+let g:suda_smart_edit = v:true

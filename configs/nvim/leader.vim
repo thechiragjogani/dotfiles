@@ -8,7 +8,10 @@ map <leader>u <Esc>:GundoToggle<CR> " Toggle graphical undo
 map <F9> <Esc><C-W>gF<CR>:tabm<CR> " Open file under cursor in new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> " Open word under cursor as ctag in new tab
 map <F1> gg=G " Formats document
-map <leader>w :SudaWrite<CR>
+map <C-h> <C-w>h " Quick window switching left
+map <C-j> <C-w>j " Quick window switching down
+map <C-k> <C-w>k " Quick window switching up
+map <C-l> <C-w>l " Quick window switching right
 noremap <silent> <leader>sw :%s/\\s\\+$//e<CR> " Remove trailing whitespaces
 noremap <silent> <leader>$ :%s/<C-V><CR>//e<CR> " <leader>$ fixes mixed EOLs (^M)
 noremap <silent><leader>jj :m+<CR> " move current line down
@@ -18,10 +21,6 @@ noremap <silent><leader>kk :m-2<CR> " move current line up
 nmap <leader>g :tabnew\|read !grep -Hnr '<C-R><C-W>'<CR> " grep recursively for word under cursor
 nmap <leader>b :!echo <C-R><C-W> \| dcode <CR> " Decode word under cursor
 nmap <leader>s :%!sort -u --version-sort<CR> " Sort the buffer removing duplicates
-nmap <C-h> <C-w>h " Quick window switching left
-nmap <C-j> <C-w>j " Quick window switching down
-nmap <C-k> <C-w>k " Quick window switching up
-nmap <C-l> <C-w>l " Quick window switching right
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
