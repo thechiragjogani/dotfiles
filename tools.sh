@@ -42,34 +42,32 @@ echo "Downloading tools from git!"
 cd /opt/tools/
 cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'sudo git clone https://github.com/{}'
 cd /opt/tools/decodify
-make install
+sudo make install
 cd /opt/tools/jsparser
-pip install -r requirements.txt
+sudo pip install -r requirements.txt
 sudo python2 setup.py install
 cd /opt/tools/linenum
-mv LinEnum.sh linenum.sh
-chmod +x linenum.sh
+sudo mv LinEnum.sh linenum.sh
+sudo chmod +x linenum.sh
 cd /opt/tools/linuxprivchecker
-python3 setup.py install
+sudo python3 setup.py install
 cd /opt/tools/Sublist3r
-pip install -r requirements.txt
+sudo pip install -r requirements.txt
 sudo python2 setup.py install
 sudo python3 setup.py install
 cd /opt/tools/knock
-pip install -r requirements.txt
+sudo pip install -r requirements.txt
 sudo python2 setup.py install
 cd /opt/tools/massdns
-make
-make install
+sudo make install
 cd /opt/tools/asnlookup
-pip install -r requirements.txt
-pip3 install -r requirements.txt
+sudo pip install -r requirements.txt
+sudo pip3 install -r requirements.txt
 cd /opt/tools/Hash-Buster
-make
-make install
+sudo make install
 cd /opt/tools/XSStrike
-pip install -r requirements.txt
-pip3 install -r requirements.txt
+sudo pip install -r requirements.txt
+sudo pip3 install -r requirements.txt
 
 echo "Downloading poor-mans-pentest scripts"
 cd /opt/tools/poor-mans-pentest
