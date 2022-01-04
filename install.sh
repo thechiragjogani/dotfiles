@@ -50,6 +50,7 @@ sudo python2 -m pip install --upgrade pip
 sudo python3 -m pip install --upgrade pip
 pip install -r /opt/requirements.txt
 pip3 install -r /opt/requirements.txt
+rm -rf get-pip.py
 echo "done"
 
 # #Installing flatpak and apps
