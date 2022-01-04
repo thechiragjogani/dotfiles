@@ -60,8 +60,6 @@ nvim -c "COQnow [--shut-up]"
 
 /tmp/tools.sh
 
-
-
 updater
 #Installing required packages
 cat /opt/packages.txt | xargs -I {} /usr/bin/zsh -c 'sudo apt install -y {} 2> /dev/null'
