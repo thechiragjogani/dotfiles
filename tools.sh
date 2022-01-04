@@ -18,7 +18,7 @@ cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/nul
 wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O /opt/tools/locky.py
 
 #Creating a tools folder in /opt, all tools will be available here
-mkdir /opt/tools/
+sudo mkdir /opt/tools/
 
 #install go
 sudo rm -rf /usr/local/go
