@@ -11,7 +11,7 @@ echo "Fixing GPG key errors if there are any!"
 sudo rm -rf /var/lib/apt/lists
 sudo apt update 2>&1 1>/dev/null | sed -ne 's/.*NO_PUBKEY //p' | while read key; do if ! [[ ${keys[*]} =~ "$key" ]]; then sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys "$key"; keys+=("$key"); fi; done
 sudo apt update -y
-sudo apt install -y kali-archive-keyring git stow python3 neovim curl python3-pip
+sudo apt install -y kali-archive-keyring git stow python3 neovim curl python3-pip python3-venv
 
 #Configuring hotkeys and configuration files
 echo "Configuring my hotkeys and keybindings!"
@@ -55,6 +55,7 @@ echo "done"
 # flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # flatpack install flathub com.anydesk.Anydesk org.qbittorrent.qBittorrent us.zoom.Zoom -y
 
+nvim +CHADdeps +COQdeps +qall!
 nvim -c "COQnow [--shut-up]"
 
 /tmp/tools.sh
