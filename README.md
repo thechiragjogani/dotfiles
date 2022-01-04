@@ -9,6 +9,5 @@ Kali with xfce installation(Default).
 ```zsh
 git clone https://github.com/thechiragjogani/dotfiles
 cd dotfiles
-chmod +x *.sh
 ./install.sh
 ```
