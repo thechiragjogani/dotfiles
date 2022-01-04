@@ -9,8 +9,6 @@ setopt notify              # report the status of background jobs immediately
 setopt numericglobsort     # sort filenames numerically when it makes sense
 setopt promptsubst         # enable command substitution in prompt
 setopt extended_glob       # match all files and zero or more directories and subdirectories.
-setopt inc_append_history
-setopt HIST_IGNORE_ALL_DUPS
 
 WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
