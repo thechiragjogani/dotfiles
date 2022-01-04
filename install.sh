@@ -18,7 +18,9 @@ echo "Configuring my hotkeys and keybindings!"
 sudo rm -rf $HOME/configs.bak/
 sudo mv $HOME/configs/ $HOME/configs.bak/
 sudo rm $HOME/.zsh*
-sudo cp -r configs/ $HOME; sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo chmod +x /tmp/tools.sh
+sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo chmod +x /tmp/tools.sh
+cd $HOME
+git clone https://github.com/thechiragjogani/configs.git
 cd $HOME/configs/ && sudo stow ack curl git input xinit xsession zsh -t $HOME
 source $HOME/.zshrc
 sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
@@ -55,7 +57,8 @@ echo "done"
 # flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # flatpack install flathub com.anydesk.Anydesk org.qbittorrent.qBittorrent us.zoom.Zoom -y
 
-nvim +CHADdeps +COQdeps +qall!
+nvim -c "CHADdeps"
+nvim -c "COQdeps"
 nvim -c "COQnow [--shut-up]"
 
 /tmp/tools.sh
