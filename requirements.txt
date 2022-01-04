@@ -11,4 +11,3 @@ argparse
 flake8
 pynvim
 msgpack
-venv
