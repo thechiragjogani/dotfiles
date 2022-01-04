@@ -36,7 +36,8 @@ nnoremap <C-s> <C-w>s " split current window horizontally
 nnoremap <leader>t <Esc>:tabe " New Tab
 nnoremap <leader>v <cmd>CHADopen<cr>
 nnoremap <leader>l <cmd>call setqflist([])<cr>
-nnoremap <silent> <leader>q :wq!<CR> " <leader>q quits the current window
+nnoremap <silent> <leader>wq :wq!<CR> " <leader>q quits the current window
+nnoremap <silent> <leader>q :q!<CR> " <leader>q quits the current window
 nnoremap <silent> yf :let @+=expand('%:p')<CR> " copies filepath to clipboard
 nnoremap <silent> <leader><Enter> :Buffers<CR> " list buffers
 " nnoremap <silent> <expr> <leader>n g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>" " Toggle nerdtree at current file
