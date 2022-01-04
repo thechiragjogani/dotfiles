@@ -15,7 +15,7 @@ sudo systemctl start docker && sudo systemctl enable docker
 sudo update-initramfs -u
 cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
 
-wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O /opt/tools/locky.py
+sudo wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O /opt/tools/locky.py
 
 #Creating a tools folder in /opt, all tools will be available here
 sudo mkdir /opt/tools/
