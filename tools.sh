@@ -41,40 +41,41 @@ cat /opt/gotools.txt | xargs -I {} /usr/bin/zsh -c 'sudo go install {}'
 echo "Downloading tools from git!"
 cd /opt/tools/
 cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'sudo git clone https://github.com/{}'
-cd decodify
+cd /opt/tools/decodify
 make install
-cd jsparser
+cd /opt/tools/jsparser
 pip install -r requirements.txt
 sudo python2 setup.py install
-cd linenum
+cd /opt/tools/linenum
 mv LinEnum.sh linenum.sh
 chmod +x linenum.sh
-cd linuxprivchecker
+cd /opt/tools/linuxprivchecker
 python3 setup.py install
-cd Sublist3r
+cd /opt/tools/Sublist3r
 pip install -r requirements.txt
 sudo python2 setup.py install
 sudo python3 setup.py install
-cd knock
+cd /opt/tools/knock
 pip install -r requirements.txt
 sudo python2 setup.py install
-cd massdns
+cd /opt/tools/massdns
 make
 make install
-cd asnlookup
+cd /opt/tools/asnlookup
 pip install -r requirements.txt
 pip3 install -r requirements.txt
-cd Hash-Buster
+cd /opt/tools/Hash-Buster
 make
 make install
-cd XSStrike
+cd /opt/tools/XSStrike
 pip install -r requirements.txt
 pip3 install -r requirements.txt
 
 echo "Downloading poor-mans-pentest scripts"
-cd poor-mans-pentest
+cd /opt/tools/poor-mans-pentest
 sudo mkdir /opt/pmp/
 sudo mv ./* /opt/pmp/
+cd
 sudo rm -rf /opt/tools/poor-mans-pentest
 echo "done"
 
