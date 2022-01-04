@@ -66,5 +66,6 @@ vlc
 wireshark
 xautomation
 xclip
+xsel
 zbar-tools
 zlib1g-dev
