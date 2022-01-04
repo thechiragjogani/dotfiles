@@ -42,8 +42,8 @@ sudo stow -S nvim -t $HOME/.config/nvim/
 #Installing pip and dependencies
 echo "Installing pip and dependencies!"
 cd $HOME
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && sudo python3 get-pip.py
-curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py && sudo python2 get-pip.py
+wget https://bootstrap.pypa.io/get-pip.py -O get-pip.py && sudo python3 get-pip.py
+wget https://bootstrap.pypa.io/pip/2.7/get-pip.py -O get-pip.py && sudo python2 get-pip.py
 sudo python2 -m pip install --upgrade pip
 sudo python3 -m pip install --upgrade pip
 pip install -r /opt/requirements.txt
