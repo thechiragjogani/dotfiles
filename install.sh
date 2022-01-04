@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 echo "Removing boilerplate home directories!"
-sudo rm -rf $HOME/.vim $HOME/Pictures $HOME/Documents $HOME/Music $HOME/Videos; mkdir -p $HOME/ctf/{htb,thm}/
+sudo rm -rf $HOME/{.vim,Downloads,Pictures,Documents,Music,Videos}; mkdir -p $HOME/ctf/{htb,thm}/
 
 #Updating sources with fast mirrors
 wget -qO- https://deb.opera.com/archive.key | sudo apt-key add - 2> /dev/null
