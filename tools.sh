@@ -23,7 +23,8 @@ sudo mkdir /opt/tools/
 #install go
 sudo rm -rf /usr/local/go
 echo "Installing Golang and tools!"
-cd /tmp/; wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz && ex go1.13.5.linux-amd64.tar.gz
+cd /tmp/
+sudo wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz && ex go1.13.5.linux-amd64.tar.gz
 sudo mv go /usr/local
 
 echo "installing goimports" #import headers automatically for go code
@@ -35,11 +36,11 @@ echo "installing unfurl"
 echo "installing waybackurls" #archived webpages
 echo "installing FFUF" #Fuzzing
 
-cat /opt/gotools.txt | xargs -I {} /usr/bin/zsh -c 'go install {}'
+cat /opt/gotools.txt | xargs -I {} /usr/bin/zsh -c 'sudo go install {}'
 
 echo "Downloading tools from git!"
 cd /opt/tools/
-cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'git clone https://github.com/{}'
+cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'sudo git clone https://github.com/{}'
 cd decodify
 make install
 cd jsparser
@@ -79,14 +80,14 @@ echo "done"
 
 cd /opt/tools/
 echo "Downloading stegsolve.jar"
-wget "http://www.caesum.com/handbook/Stegsolve.jar" -O "stegsolve.jar"; chmod +x "stegsolve.jar"
+sudo wget "http://www.caesum.com/handbook/Stegsolve.jar" -O "stegsolve.jar"; sudo chmod +x "stegsolve.jar"
 
 echo "Downloading linux-exploit-suggester"
-wget "https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh" -O les.sh; chmod +x "les.sh"
+sudo wget "https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh" -O les.sh; sudo chmod +x "les.sh"
 
 #THIS FILE BREAKS MASSDNS AND NEEDS TO BE CLEANED
 cd /usr/share/seclists/Discovery/DNS/
-cat dns-Jhaddix.txt | head -n -14 | sudo tee clean-jhaddix-dns.txt &> /dev/null
+sudo cat dns-Jhaddix.txt | head -n -14 | sudo tee clean-jhaddix-dns.txt &> /dev/null
 
 echo "Done! All tools are set up in /opt/tools"
 echo "Set up AWS credentials - aws configure"
