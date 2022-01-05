@@ -18,7 +18,7 @@ sudo rm -rf $HOME/{configs.bak,.zsh*}
 sudo mv $HOME/configs/ $HOME/configs.bak/
 sudo cp ./*.txt /opt/; sudo cp tools.sh /tmp/; sudo chmod +x /tmp/tools.sh
 cd $HOME; git clone https://github.com/thechiragjogani/configs.git
-cd $HOME/configs/ && sudo stow ack curl git input xinit xsession zsh -t $HOME
+cd $HOME/configs/ && sudo stow ack curl git input tmux xinit xsession zsh -t $HOME
 source $HOME/.zshrc
 sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
 mkdir $HOME/.config/{nvim,qterminal.org}/
