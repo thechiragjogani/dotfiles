@@ -29,16 +29,6 @@ sudo mkdir -p /etc/kali-motd/
 sudo touch /etc/kali-motd/disable-all
 mkdir $HOME/.dircolors
 
-#Installing and configuring neovim
-sudo stow -S nvim-plug -t $HOME/.config/nvim/
-sudo rm -rf $HOME/.vim
-sudo rm $HOME/.local/share/nvim/site/autoload/plug.vim
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-/usr/bin/zsh -c "nvim -c 'so $HOME/.config/nvim/plug.vim | PlugInstall | qall!'"
-nvim -c "call mkdp#util#install()"
-nvim +qall
-sudo stow -S nvim -t $HOME/.config/nvim/
-
 #Installing pip and dependencies
 echo "Installing pip and dependencies!"
 cd $HOME
@@ -50,6 +40,14 @@ pip install -r /opt/requirements.txt
 pip3 install -r /opt/requirements.txt
 rm -rf get-pip.py
 echo "done"
+
+#Installing and configuring neovim
+sudo stow -S nvim-plug -t $HOME/.config/nvim/
+sudo rm -rf $HOME/.vim
+sudo rm $HOME/.local/share/nvim/site/autoload/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+/usr/bin/zsh -c "nvim -c 'so $HOME/.config/nvim/plug.vim | PlugInstall | qall!'"
+sudo stow -S nvim -t $HOME/.config/nvim/
 
 # #Installing flatpak and apps
 # sudo apt install flatpak gnome-software-plugin-flatpak -y
