@@ -55,8 +55,9 @@ sudo stow -S nvim -t $HOME/.config/nvim/
 # flatpack install flathub com.anydesk.Anydesk org.qbittorrent.qBittorrent us.zoom.Zoom -y
 
 /tmp/tools.sh
-
-updater
 #Installing required packages
 cat /opt/packages.txt | xargs -I {} /usr/bin/zsh -c 'sudo apt install -y {} 2> /dev/null'
+
+updater
+
 echo "Now you can update and upgrade your kali machine anytime by typing \"updater\" command!"

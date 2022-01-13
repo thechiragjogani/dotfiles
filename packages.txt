@@ -17,6 +17,7 @@ fcrackzip
 ffmpeg
 font-manager
 foremost
+flatpack
 gcc
 gimp
 gnupg-agent
@@ -44,6 +45,7 @@ pandoc
 pdfcrack
 python3
 python3-pip
+qbittorrent
 qrencode
 ranger
 rename
