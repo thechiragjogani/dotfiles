@@ -12,3 +12,4 @@ flake8
 pynvim
 msgpack
 trash-cli
+virtualenv
