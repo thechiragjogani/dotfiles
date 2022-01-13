@@ -24,6 +24,7 @@ source $HOME/.zshrc
 sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
 mkdir $HOME/.config/{nvim,qterminal.org}/
 sudo stow -S qterminal -t $HOME/.config/qterminal.org/
+sudo stow -S xfce -t $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
 mkdir $HOME/.config/nvim/plugged
 sudo mkdir -p /etc/kali-motd/
 sudo touch /etc/kali-motd/disable-all
