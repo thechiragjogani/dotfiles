@@ -11,6 +11,7 @@ docker
 dos2unix
 dstat
 dtach
+evince
 exiftool
 fcrackzip
 ffmpeg

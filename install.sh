@@ -37,7 +37,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 /usr/bin/zsh -c "nvim -c 'so $HOME/.config/nvim/plug.vim | PlugInstall | qall!'"
 nvim -c "call mkdp#util#install()"
 nvim +qall
-sudo mkdir -p $HOME/.config/nvim/lua
 sudo stow -S nvim -t $HOME/.config/nvim/
 
 #Installing pip and dependencies
