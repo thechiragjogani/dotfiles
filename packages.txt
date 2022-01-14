@@ -50,6 +50,8 @@ pdfcrack
 python3
 python3-pip
 qbittorrent
+quick-lint-js
+quick-lint-js-vim
 qrencode
 ranger
 rename

@@ -3,8 +3,9 @@ echo "Removing boilerplate home directories!"
 mv $HOME/Downloads/* $HOME
 sudo rm -rf $HOME/{.vim,Downloads,Pictures,Documents,Music,Videos}
 
-#Updating sources with fast mirrors
-echo "deb https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free\ndeb-src https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free\ndeb https://mirrors.ocf.berkeley.edu/debian sid main contrib non-free\ndeb-src https://mirrors.ocf.berkeley.edu/debian sid main contrib non-free" | sudo tee /etc/apt/sources.list
+#Updating sources with fast mirrorscurl
+https://c.quick-lint-js.com/quick-lint-js-release.key | sudo apt-key add -
+echo "deb https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free\ndeb-src https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free\ndeb https://mirrors.ocf.berkeley.edu/debian sid main contrib non-free\ndeb-src https://mirrors.ocf.berkeley.edu/debian sid main contrib non-free\ndeb [arch=amd64] https://c.quick-lint-js.com/debian experimental main\n" | sudo tee /etc/apt/sources.list
 
 echo "Fixing GPG key errors if there are any!"
 sudo rm -rf /var/lib/apt/lists
