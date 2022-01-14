@@ -3,6 +3,7 @@ awscli
 binwalk
 build-essential
 ca-certificates
+clangd-12
 cmake
 containerd.io
 universal-ctags
@@ -39,6 +40,9 @@ libxslt1-dev
 neovim
 nikto
 nmap
+nodejs
+node-pre-gyp
+npm
 openvpn
 p7zip-full
 pandoc
@@ -46,6 +50,8 @@ pdfcrack
 python3
 python3-pip
 qbittorrent
+quick-lint-js
+quick-lint-js-vim
 qrencode
 ranger
 rename

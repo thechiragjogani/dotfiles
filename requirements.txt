@@ -13,3 +13,4 @@ pynvim
 msgpack
 trash-cli
 virtualenv
+setuptools

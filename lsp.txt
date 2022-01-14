@@ -1,0 +1,13 @@
+bash-language-server
+cssmodules-language-server
+dockerfile-language-server-nodejs
+emmet-ls
+@emacs-grammarly/unofficial-grammarly-language-server
+intelephense
+pyright
+remark-language-server
+typescript
+typescript-language-server
+vim-language-server
+vls
+vscode-langservers-extracted

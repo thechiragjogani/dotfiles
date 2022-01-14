@@ -7,9 +7,6 @@ sudo timedatectl set-ntp "True"
 ins systemd-timesyncd
 sudo systemctl enable systemd-timesyncd
 
-#Installing nodejs
-curl -sL install-node.vercel.app/lts | sudo bash
-
 echo "Installing tools!"
 sudo systemctl start docker && sudo systemctl enable docker
 sudo update-initramfs -u

@@ -6,3 +6,4 @@ github.com/tomnomnom/httprobe@latest
 github.com/tomnomnom/unfurl@latest
 github.com/tomnomnom/waybackurls@latest
 golang.org/x/tools/cmd/goimports@latest
+golang.org/x/tools/gopls@latest
