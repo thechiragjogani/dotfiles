@@ -26,7 +26,8 @@ echo "done"
 
 sudo mkdir -p /etc/kali-motd/
 sudo touch /etc/kali-motd/disable-all
-mkdir $HOME/.dircolors
+dircolors -p > ~/.dircolors
+eval "dircolors -b ~/.dircolors"
 
 cd $HOME; git clone https://github.com/thechiragjogani/configs.git
 cd $HOME/configs/ && sudo stow ack curl git input tmux xinit xsession zsh -t $HOME
