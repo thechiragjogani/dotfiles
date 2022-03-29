@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 source ~/.zshrc
-
+ins docker*
 rem ntp
 sudo timedatectl set-timezone "Asia/Kolkata"
 sudo timedatectl set-ntp "True"
