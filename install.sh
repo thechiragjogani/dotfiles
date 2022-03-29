@@ -13,6 +13,8 @@ sudo apt update 2>&1 1>/dev/null | sed -ne 's/.*NO_PUBKEY //p' | while read key;
 sudo apt update -y
 sudo apt install -y kali-archive-keyring git stow python3 neovim curl python3-pip python3-venv
 
+sudo mv *.txt /opt/
+
 #Installing pip and dependencies
 echo "Installing pip and dependencies!"
 cd /tmp/
@@ -29,6 +31,7 @@ sudo touch /etc/kali-motd/disable-all
 dircolors -p > $HOME/.dircolors
 
 cd $HOME; git clone https://github.com/thechiragjogani/configs.git
+sudo rm $HOME/.zshrc
 cd $HOME/configs/ && sudo stow ack curl git input tmux xinit xsession zsh -t $HOME
 sudo rm $HOME/.local/share/nvim/site/autoload/plug.vim
 sudo rm $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
