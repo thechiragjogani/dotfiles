@@ -54,8 +54,17 @@ cd ~/dotfiles
 #Installing required packages
 cat /opt/packages.txt | xargs -I {} /usr/bin/zsh -c 'sudo apt install -y {} 2> /dev/null'
 
-updater
-
+sudo apt --fix-broken install -y 2> /dev/null;
+sudo apt-get update -y 2> /dev/null;
+sudo apt-get upgrade -y 2> /dev/null;
+sudo apt-get dist-upgrade -y 2> /dev/null;
+sudo apt-get install kali-linux-everything -y 2> /dev/null;
+sudo apt-get update -y 2> /dev/null;
+sudo apt autoremove -y 2> /dev/null;
+sudo apt autoclean -y 2> /dev/null;
+sudo apt clean -y 2> /dev/null;
+sudo apt-get install -f 2> /dev/null;
+cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
 cat /opt/lsp.txt | xargs -I {} /usr/bin/zsh -c 'sudo npm i -g {} 2> /dev/null'
 
 echo "Now you can update and upgrade your kali machine anytime by typing \"updater\" command!"
