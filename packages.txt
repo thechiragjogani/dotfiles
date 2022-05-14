@@ -22,7 +22,6 @@ flatpack
 gcc
 gimp
 gnupg-agent
-guake
 hcxtools
 hexedit
 htop
