@@ -29,12 +29,12 @@ dircolors -p > $HOME/.dircolors
 
 #Installing custom configs
 echo "Installing custom configs!"
-cd $HOME; git clone https://github.com/thechiragjogani/configs.git
 sudo rm $HOME/.zshrc
-cd $HOME/configs/ && sudo stow ack curl git input tmux xinit xsession zsh -t $HOME
 sudo rm $HOME/.local/share/nvim/site/autoload/plug.vim
 sudo rm $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
+cd $HOME; git clone https://github.com/thechiragjogani/configs.git
+cd $HOME/configs/ && sudo stow ack curl git input tmux xinit xsession zsh -t $HOME
 mkdir $HOME/.config/{nvim,qterminal.org}/
 mkdir $HOME/.config/nvim/{lua,plugged}/
 sudo stow -S qterminal -t $HOME/.config/qterminal.org/

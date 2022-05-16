@@ -26,12 +26,13 @@ echo "installing unfurl"
 echo "installing waybackurls" #archived webpages
 echo "installing FFUF" #Fuzzing
 
-cat /opt/gotools.txt | xargs -I {} /usr/bin/zsh -c 'sudo go install {}'
+cat /opt/gotools.txt | xargs -I {} /usr/bin/zsh -c 'sudo go install {} 2>/dev/null'
 
 echo "Downloading tools from git!"
 #Creating a tools folder in /opt, all tools will be available here
 sudo mkdir /opt/tools/
 cd /opt/tools/
+
 sudo wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O locky.py
 
 git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts
@@ -72,7 +73,6 @@ echo "Downloading poor-mans-pentest scripts"
 cd /opt/tools/poor-mans-pentest
 sudo mkdir /opt/pmp/
 sudo mv ./* /opt/pmp/
-cd
 sudo rm -rf /opt/tools/poor-mans-pentest
 echo "done"
 
@@ -91,5 +91,3 @@ echo "Done! All tools are set up in /opt/tools"
 echo "Set up AWS credentials - aws configure"
 echo "Free AWS account - https://aws.amazon.com/s/dm/optimization/server-side-test/free-tier/free_np/"
 echo "AWS credentials - https://console.aws.amazon.com/iam/home?#/security_credential\n"
-
-cd
