@@ -6,23 +6,16 @@ sudo timedatectl set-timezone "Asia/Kolkata"
 sudo timedatectl set-ntp "True"
 ins systemd-timesyncd
 sudo systemctl enable systemd-timesyncd
+sudo timedatectl set-local-rtc 1
+
 
 echo "Installing tools!"
 sudo systemctl start docker && sudo systemctl enable docker
 sudo update-initramfs -u
 cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
 
-sudo wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O /opt/tools/locky.py
-
-#Creating a tools folder in /opt, all tools will be available here
-sudo mkdir /opt/tools/
-
 #install go
-sudo rm -rf /usr/local/go
-echo "Installing Golang and tools!"
-cd /tmp/
-sudo wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz && ex go1.13.5.linux-amd64.tar.gz
-sudo mv go /usr/local
+sudo apt install golang
 
 echo "installing goimports" #import headers automatically for go code
 echo "installing gocode" #autocomplete go code
@@ -36,7 +29,16 @@ echo "installing FFUF" #Fuzzing
 cat /opt/gotools.txt | xargs -I {} /usr/bin/zsh -c 'sudo go install {}'
 
 echo "Downloading tools from git!"
+#Creating a tools folder in /opt, all tools will be available here
+sudo mkdir /opt/tools/
 cd /opt/tools/
+sudo wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O locky.py
+
+git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts
+cd nerd-fonts
+git sparse-checkout add patched-fonts/FiraCode
+./install.sh FiraCode
+
 cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'sudo git clone https://github.com/{}'
 cd /opt/tools/decodify
 sudo make install
