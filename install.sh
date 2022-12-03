@@ -9,9 +9,9 @@ echo "deb http://downloads.metasploit.com/data/releases/metasploit-framework/apt
 echo "Fixing GPG key errors if there are any!"
 sudo rm -rf /var/lib/apt/lists
 sudo apt update -y
-sudo apt update 2>&1 1>/dev/null | sed -ne 's/.*NO_PUBKEY //p' | while read key; do if ! [[ ${keys[*]} =~ "$key" ]]; then sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys "$key"; keys+=("$key"); fi; done
+sudo apt update -y 2>&1 1>/dev/null | sed -ne 's/.*NO_PUBKEY //p' | while read key; do if ! [[ ${keys[*]} =~ "$key" ]]; then sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys "$key"; keys+=("$key"); fi; done
 sudo apt update -y
-sudo apt install -y kali-archive-keyring git stow python3 neovim curl python3-pip python3-venv stow zsh python2
+sudo apt install -y kali-archive-keyring git stow python3 neovim curl python3-pip python3-venv zsh python2
 
 sudo cp *.txt /opt/
 
