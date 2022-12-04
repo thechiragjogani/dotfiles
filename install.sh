@@ -12,7 +12,7 @@ sudo apt update -y
 sudo apt update 2>&1 1>/dev/null | sed -ne 's/.*NO_PUBKEY //p' | while read key; do if ! [[ ${keys[*]} =~ "$key" ]]; then sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "0x$key"; keys+=("$key"); fi; done
 for KEY in $(apt-key --keyring /etc/apt/trusted.gpg list | grep -E "(([ ]{1,2}(([0-9A-F]{4}))){10})" | tr -d " " | grep -E "([0-9A-F]){8}\b" ); do K=${KEY:(-8)}; sudo rm /etc/apt/trusted.gpg.d/imported-from-trusted-gpg-$K.gpg; apt-key export $K | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/imported-from-trusted-gpg-$K.gpg; done
 sudo apt update -y
-sudo apt install -y kali-archive-keyring git stow python3 neovim curl python3-pip python3-venv zsh python2
+sudo apt install -y kali-archive-keyring git stow python3 neovim curl python3-pip python3-venv zsh python2 tmux
 
 sudo cp *.txt /opt/
 
