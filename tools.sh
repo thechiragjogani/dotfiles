@@ -32,7 +32,12 @@ echo "Downloading tools from git!"
 #Creating a tools folder in /opt, all tools will be available here
 sudo mkdir /opt/tools/
 cd /opt/tools/
+sudo git clone https://github.com/tmiland/dpkg-zstd-patches.git
+cd dpkg-zstd-patches
+sudo dpkg -i ./deb-packages/dpkg_1.20.12_amd64.deb
+sudo dpkg -i ./deb-packages/dpkg-repack_1.47_all.deb
 
+cd /opt/tools/
 sudo wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O locky.py
 
 sudo git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts
