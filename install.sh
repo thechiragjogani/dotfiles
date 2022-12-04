@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/bash
 echo "Removing boilerplate home directories!"
 mv $HOME/Downloads/* $HOME
 sudo rm -rf $HOME/{.vim,Downloads,Pictures,Documents,Music,Videos}
