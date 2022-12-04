@@ -35,9 +35,10 @@ cd /opt/tools/
 
 sudo wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O locky.py
 
-git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts
+sudo git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts
 cd nerd-fonts
-git sparse-checkout add patched-fonts/FiraCode
+git config --global --add safe.directory /opt/tools/nerd-fonts
+sudo git sparse-checkout add patched-fonts/FiraCode
 ./install.sh FiraCode
 
 cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'sudo git clone https://github.com/{}'
