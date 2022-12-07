@@ -46,7 +46,9 @@ mkdir $HOME/.config/nvim/{lua,plugged}/
 sudo stow -S qterminal -t $HOME/.config/qterminal.org/
 sudo stow -S xfce -t $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
 sudo stow -S nvim-plug -t $HOME/.config/nvim/
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+echo "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf
+sudo mkdir -p $HOME/.local/share/nvim/site/autoload/
+wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -O $HOME/.local/share/nvim/site/autoload/plug.vim
 /usr/bin/zsh -c "nvim -c 'so $HOME/.config/nvim/plug.vim | PlugInstall | qall!'"
 sudo stow -S nvim -t $HOME/.config/nvim/
 
