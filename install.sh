@@ -4,7 +4,11 @@ mv $HOME/Downloads/* $HOME
 sudo rm -rf $HOME/{.vim,Downloads,Pictures,Documents,Music,Videos}
 
 #Updating sources with fast mirrors
-echo "deb http://downloads.metasploit.com/data/releases/metasploit-framework/apt lucid InRelease\ndeb https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free\ndeb-src https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free\ndeb https://mirrors.ocf.berkeley.edu/debian bullseye main contrib non-free\ndeb-src https://mirrors.ocf.berkeley.edu/debian bullseye main contrib non-free\n" | sudo tee /etc/apt/sources.list
+echo "deb http://downloads.metasploit.com/data/releases/metasploit-framework/apt kali main" | sudo tee /etc/apt/sources.list
+echo "deb https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free" | sudo tee -a /etc/apt/sources.list
+echo "deb-src https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free" | sudo tee -a /etc/apt/sources.list
+echo "deb https://mirrors.ocf.berkeley.edu/debian bullseye main contrib non-free" | sudo tee -a /etc/apt/sources.list
+echo "deb-src https://mirrors.ocf.berkeley.edu/debian bullseye main contrib non-free" | sudo tee -a /etc/apt/sources.list
 
 echo "Fixing GPG key errors if there are any!"
 sudo rm -rf /var/lib/apt/lists
