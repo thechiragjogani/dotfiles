@@ -46,7 +46,7 @@ git config --global --add safe.directory /opt/tools/nerd-fonts
 sudo git sparse-checkout add patched-fonts/FiraCode
 ./install.sh FiraCode
 
-cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'sudo git clone https://github.com/{}'
+cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'cd /opt/tools/; sudo git clone https://github.com/{}'
 cd /opt/tools/decodify
 sudo make install
 cd /opt/tools/jsparser
