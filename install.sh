@@ -52,9 +52,11 @@ sudo stow -S nvim-plug -t $HOME/.config/nvim/
 echo "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf
 
 sudo mkdir -p $HOME/.local/share/nvim/site/autoload/
-wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -O $HOME/.local/share/nvim/site/autoload/plug.vim
-/usr/bin/zsh -c "nvim -c 'so $HOME/.config/nvim/plug.vim | PlugInstall | qall!'"
+sudo wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -O $HOME/.local/share/nvim/site/autoload/plug.vim
+/usr/bin/zsh -c "nvim -c 'so $HOME/.config/nvim/init.vim | PlugInstall | qall!'"
 sudo stow -S nvim -t $HOME/.config/nvim/
+
+sudo touch $HOME/ctf/target
 
 #Installing required packages
 sudo apt-get update -y 2> /dev/null;
