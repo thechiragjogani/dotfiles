@@ -1,9 +1,4 @@
 github.com/ffuf/ffuf@latest
-github.com/michenriksen/aquatone@latest
-github.com/nsf/gocode@latest
 github.com/OJ/gobuster@latest
 github.com/tomnomnom/httprobe@latest
-github.com/tomnomnom/unfurl@latest
 github.com/tomnomnom/waybackurls@latest
-golang.org/x/tools/cmd/goimports@latest
-golang.org/x/tools/gopls@latest
