@@ -18,9 +18,10 @@ sudo update-initramfs -u
 ins golang
 
 #Creating a tools folder in /opt, all tools will be available here
-sudo mkdir /opt/tools/
+sudo chown -R kali:kali /opt
+mkdir /opt/tools/
 tools
-sudo wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O locky.py
+wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O locky.py
 
 sudo git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts
 cd nerd-fonts
