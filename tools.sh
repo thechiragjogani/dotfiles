@@ -41,9 +41,6 @@ sudo mkdir /opt/pmp/
 sudo mv ./* /opt/pmp/
 sudo rm -rf /opt/tools/poor-mans-pentest
 
-mkdir -p $HOME/ctf/htb/
-mkdir -p $HOME/ctf/thm/
-
 # cd /opt/tools/
 # echo "Downloading stegsolve.jar"
 # sudo wget "http://www.caesum.com/handbook/Stegsolve.jar" -O "stegsolve.jar"; sudo chmod +x "stegsolve.jar"
