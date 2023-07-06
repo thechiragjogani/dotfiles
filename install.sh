@@ -20,7 +20,9 @@ sudo apt install -y kali-archive-keyring git stow python3 neovim curl python3 zs
 
 
 sudo mkdir -p /usr/share/pandoc/data/templates/
-cp eisvogel.latex /usr/share/pandoc/data/templates/
+sudo cp eisvogel.latex /usr/share/pandoc/data/templates/
+sudo chown -R $USER /opt
+sudo chown -R $USER ~
 cp *.txt /opt/
 
 #Installing pip and dependencies
