@@ -43,6 +43,8 @@ sudo rm -rf $HOME/.config/{nvim,qterminal.org}/
 mkdir -p $HOME/ctf
 touch $HOME/ctf/target
 
+mkdir -p $HOME/ctf/{htb,thm}
+
 cd $HOME; git clone https://github.com/thechiragjogani/configs.git
 cd $HOME/configs/ && stow ack curl git input tmux xinit xsession zsh xorg -t $HOME
 
@@ -67,7 +69,6 @@ sudo apt-get update -y 2> /dev/null;
 sudo apt --fix-broken install -y 2> /dev/null;
 sudo apt-get upgrade -y 2> /dev/null;
 sudo apt-get dist-upgrade -y 2> /dev/null;
-sudo apt-get install kali-linux-everything -y 2> /dev/null;
 sudo apt-get install -f 2> /dev/null;
 sudo apt autoremove -y 2> /dev/null;
 sudo apt autoclean -y 2> /dev/null;
