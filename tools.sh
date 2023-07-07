@@ -18,7 +18,7 @@ sudo update-initramfs -u
 ins golang
 
 #Creating a tools folder in /opt, all tools will be available here
-sudo chown -R kali:kali /opt
+sudo chown -R $USER /opt
 mkdir /opt/tools/
 tools
 wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O locky.py
@@ -35,6 +35,13 @@ cd /opt/tools/decodify
 sudo make install
 cd /opt/tools/Hash-Buster
 sudo make install
+cd /opt/tools/jwt_tool
+pip3 install -r requirements.txt
+sudo chmod +x jwt_tool.py
+sudo ln -s /opt/tools/jwt_tool/jwt_tool.py /usr/bin/jwt_tool
+cd /opt/tools/kiterunner
+sudo make build
+sudo ln -s /opt/tools/kiterunner/dist/kr /usr/bin/kr
 
 cd /opt/tools/poor-mans-pentest
 sudo mkdir /opt/pmp/
