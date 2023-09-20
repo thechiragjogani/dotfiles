@@ -9,7 +9,7 @@ echo "deb https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-fr
 echo "deb-src https://mirrors.ocf.berkeley.edu/kali kali-rolling main contrib non-free" | sudo tee -a /etc/apt/sources.list
 echo "deb https://mirrors.ocf.berkeley.edu/debian bullseye main contrib non-free" | sudo tee -a /etc/apt/sources.list
 echo "deb-src https://mirrors.ocf.berkeley.edu/debian bullseye main contrib non-free" | sudo tee -a /etc/apt/sources.list
-
+echo 'HostKeyAlgorithms ssh-rsa,ssh-dss\nPubkeyAcceptedKeyTypes ssh-rsa,ssh-dss' | sudo tee /etc/ssh/ssh_config.d/my.conf
 echo "Fixing GPG key errors if there are any!"
 sudo rm -rf /var/lib/apt/lists
 sudo apt update 2>&1 1>/dev/null | sed -ne 's/.*NO_PUBKEY //p' | while read key; do if ! [[ ${keys[*]} =~ "$key" ]]; then sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "0x$key"; keys+=("$key"); fi; done
