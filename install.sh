@@ -57,6 +57,8 @@ stow -S xfce -t $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
 stow -S nvim-plug -t $HOME/.config/nvim/
 
 echo "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf
+sudo service NetworkManager restart
+sleep 5
 
 mkdir -p $HOME/.local/share/nvim/site/autoload/
 wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -O $HOME/.local/share/nvim/site/autoload/plug.vim
