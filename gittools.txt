@@ -4,4 +4,4 @@ s0md3v/Hash-Buster.git
 Mebus/cupp.git
 JohnHammond/poor-mans-pentest
 ticarpi/jwt_tool
-assetnote/kiterunner
+six2dez/reconftw
