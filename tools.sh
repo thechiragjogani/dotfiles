@@ -18,8 +18,7 @@ sudo update-initramfs -u
 ins golang
 
 #Creating a tools folder in /opt, all tools will be available here
-sudo chown -R $USER /opt
-mkdir /opt/tools/
+mkdir ~/Tools
 tools
 wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O locky.py
 
@@ -29,24 +28,16 @@ git config --global --add safe.directory /opt/tools/nerd-fonts
 sudo git sparse-checkout add patched-fonts/FiraCode
 ./install.sh FiraCode
 
-cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'cd /opt/tools/; sudo git clone https://github.com/{}'
+cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'cd ~/Tools; sudo git clone https://github.com/{}'
 
-cd /opt/tools/decodify
+cd ~/Tools/decodify
 sudo make install
-cd /opt/tools/Hash-Buster
+cd ~/Tools/Hash-Buster
 sudo make install
-cd /opt/tools/jwt_tool
+cd ~/Tools/jwt_tool
 pip3 install -r requirements.txt
 sudo chmod +x jwt_tool.py
-sudo ln -s /opt/tools/jwt_tool/jwt_tool.py /usr/bin/jwt_tool
-cd /opt/tools/kiterunner
-sudo make build
-sudo ln -s /opt/tools/kiterunner/dist/kr /usr/bin/kr
-
-cd /opt/tools/poor-mans-pentest
-sudo mkdir /opt/pmp/
-sudo mv ./* /opt/pmp/
-sudo rm -rf /opt/tools/poor-mans-pentest
+sudo ln -s ~/Tools/jwt_tool/jwt_tool.py /usr/bin/jwt_tool
 
 # cd /opt/tools/
 # echo "Downloading stegsolve.jar"
@@ -56,8 +47,8 @@ sudo rm -rf /opt/tools/poor-mans-pentest
 # sudo wget "https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh" -O les.sh; sudo chmod +x "les.sh"
 
 # #THIS FILE BREAKS MASSDNS AND NEEDS TO BE CLEANED
-# cd /usr/share/seclists/Discovery/DNS/
-# sudo cat dns-Jhaddix.txt | head -n -14 | sudo tee clean-jhaddix-dns.txt &> /dev/null
+cd /usr/share/seclists/Discovery/DNS/
+sudo cat dns-Jhaddix.txt | head -n -14 | sudo tee clean-jhaddix-dns.txt &> /dev/null
 
 cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
 cat /opt/gotools.txt | xargs -I {} /usr/bin/zsh -c 'sudo go install {} 2>/dev/null'
