@@ -2,7 +2,7 @@
 # No annoying password prompts
 CURRENTUSER=$(whoami); sudo echo -e "\n$CURRENTUSER  ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 echo "Removing boilerplate home directories!"
-$NULLIFY = "2>/dev/null"
+$NULLIFY="2>/dev/null"
 
 mv $HOME/Downloads/* $HOME $NULLIFY
 sudo rm -rf $HOME/{.vim,Downloads,Pictures,Documents,Music,Videos} $NULLIFY
