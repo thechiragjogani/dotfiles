@@ -4,7 +4,7 @@ CURRENTUSER=$(whoami); sudo echo -e "\n$CURRENTUSER  ALL=(ALL:ALL) NOPASSWD: ALL
 echo "Removing boilerplate home directories!"
 
 mv $HOME/Downloads/* $HOME 2>/dev/null
-sudo rm -rf $HOME/{.vim,Downloads,Pictures,Documents,Music,Videos} 2>/dev/null
+sudo rm -rf $HOME/{.vim,Downloads,Pictures,Documents,Music,Videos,Public,Templates} 2>/dev/null
 
 #Updating sources with fast mirrors
 echo "deb http://downloads.metasploit.com/data/releases/metasploit-framework/apt kali main" | sudo tee /etc/apt/sources.list
@@ -25,7 +25,8 @@ sudo apt install -y kali-archive-keyring git stow python3 neovim curl python3 zs
 sudo mkdir -p /usr/share/pandoc/data/templates/
 sudo cp eisvogel.latex /usr/share/pandoc/data/templates/
 
-cp *.txt $HOME/Tools
+mkdir -p $HOME/Tools
+cp $HOME/dotfiles/*.txt $HOME/Tools
 
 sudo mkdir -p /etc/kali-motd/
 sudo touch /etc/kali-motd/disable-all

@@ -7,7 +7,6 @@ Kali with xfce installation(Default).
 ### Steps:
 -----
 ```zsh
-git clone https://github.com/thechiragjogani/dotfiles
-cd dotfiles
-./install.sh
+cd; git clone https://github.com/thechiragjogani/dotfiles
+cd ~/dotfiles; ./install.sh
 ```
