@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 # No annoying password prompts
-sudo echo "${USERNAME}  ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
+CURRENTUSER=$(whoami); sudo echo -e "\n$CURRENTUSER  ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 echo "Removing boilerplate home directories!"
 $NULLIFY = "2>/dev/null"
 
