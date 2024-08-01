@@ -19,7 +19,7 @@ mkdir $HOME/Tools
 tools
 wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O locky.py
 
-cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'cd $HOME/Tools; git clone https://github.com/{}'
+tools; cat gittools.txt | xargs -I {} /usr/bin/zsh -c 'cd $HOME/Tools; git clone https://github.com/{}'
 
 cd $HOME/Tools/decodify
 sudo make install
@@ -41,6 +41,6 @@ cd reconftw/
 
 echo -e 'export GOROOT=/usr/local/go\nexport GOPATH=$HOME/go\nexport PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH' | sudo tee -a $HOME/.zshrc 2> /dev/null
 
-cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
+tools; cat labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
 
 echo "Done! All tools are set up in $HOME/Tools"
