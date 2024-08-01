@@ -1,5 +1,5 @@
 #!/usr/bin/zsh
-source ~/.zshrc
+source $HOME/.zshrc
 echo "Installing tools!"
 
 ins docker*
@@ -14,48 +14,31 @@ sudo timedatectl set-local-rtc 1
 sudo systemctl start docker && sudo systemctl enable docker
 sudo update-initramfs -u
 
-#install go
-ins golang
-
 #Creating a tools folder in /opt, all tools will be available here
-mkdir ~/Tools
+mkdir $HOME/Tools
 tools
 wget "https://raw.githubusercontent.com/s0md3v/Locky/master/locky.py" -O locky.py
 
-sudo git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts
-cd nerd-fonts
-git config --global --add safe.directory /opt/tools/nerd-fonts
-sudo git sparse-checkout add patched-fonts/FiraCode
-./install.sh FiraCode
+cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'cd $HOME/Tools; git clone https://github.com/{}'
 
-cat /opt/gittools.txt | xargs -I {} /usr/bin/zsh -c 'cd ~/Tools; sudo git clone https://github.com/{}'
-
-cd ~/Tools/decodify
+cd $HOME/Tools/decodify
 sudo make install
-cd ~/Tools/Hash-Buster
+cd $HOME/Tools/Hash-Buster
 sudo make install
-cd ~/Tools/jwt_tool
+cd $HOME/Tools/jwt_tool
 pip3 install -r requirements.txt
-sudo chmod +x jwt_tool.py
-sudo ln -s ~/Tools/jwt_tool/jwt_tool.py /usr/bin/jwt_tool
+chmod +x jwt_tool.py
+sudo ln -s $HOME/Tools/jwt_tool/jwt_tool.py /usr/bin/jwt_tool
 
-# cd /opt/tools/
-# echo "Downloading stegsolve.jar"
-# sudo wget "http://www.caesum.com/handbook/Stegsolve.jar" -O "stegsolve.jar"; sudo chmod +x "stegsolve.jar"
-
-# echo "Downloading linux-exploit-suggester"
-# sudo wget "https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh" -O les.sh; sudo chmod +x "les.sh"
-
-# #THIS FILE BREAKS MASSDNS AND NEEDS TO BE CLEANED
 cd /usr/share/seclists/Discovery/DNS/
-sudo cat dns-Jhaddix.txt | head -n -14 | sudo tee clean-jhaddix-dns.txt &> /dev/null
+cat dns-Jhaddix.txt | head -n -14 | tee clean-jhaddix-dns.txt &> /dev/null
+
+ins gobuster
 
 tools
 cd reconftw/
 ./install.sh
 
-# cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
-cat /opt/gotools.txt | xargs -I {} /usr/bin/zsh -c 'sudo go install {} 2>/dev/null'
-pdtm -ia
-pdtm -ua
-echo "Done! All tools are set up in ~/Tools"
+cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
+
+echo "Done! All tools are set up in $HOME/Tools"

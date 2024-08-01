@@ -1,7 +1,6 @@
 eystsen/pentestlab.git
 s0md3v/decodify
 s0md3v/Hash-Buster.git
-Mebus/cupp.git
 JohnHammond/poor-mans-pentest
 ticarpi/jwt_tool
 six2dez/reconftw

@@ -1,5 +1,0 @@
-github.com/ffuf/ffuf@latest
-github.com/OJ/gobuster@latest
-github.com/tomnomnom/httprobe@latest
-github.com/tomnomnom/waybackurls@latest
-github.com/projectdiscovery/pdtm/cmd/pdtm@latest

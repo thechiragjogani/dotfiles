@@ -1,5 +1,0 @@
-mitmproxy2swagger
-termcolor
-cprint
-pycryptodomex
-requests
