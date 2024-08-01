@@ -2,10 +2,9 @@
 # No annoying password prompts
 CURRENTUSER=$(whoami); sudo echo -e "\n$CURRENTUSER  ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 echo "Removing boilerplate home directories!"
-NULLIFY="2>/dev/null"
 
-mv $HOME/Downloads/* $HOME $NULLIFY
-sudo rm -rf $HOME/{.vim,Downloads,Pictures,Documents,Music,Videos} $NULLIFY
+mv $HOME/Downloads/* $HOME 2>/dev/null
+sudo rm -rf $HOME/{.vim,Downloads,Pictures,Documents,Music,Videos} 2>/dev/null
 
 #Updating sources with fast mirrors
 echo "deb http://downloads.metasploit.com/data/releases/metasploit-framework/apt kali main" | sudo tee /etc/apt/sources.list
@@ -20,7 +19,7 @@ sudo apt update 2>&1 1>/dev/null | sed -ne 's/.*NO_PUBKEY //p' | while read key;
 for KEY in $(apt-key --keyring /etc/apt/trusted.gpg list | grep -E "(([ ]{1,2}(([0-9A-F]{4}))){10})" | tr -d " " | grep -E "([0-9A-F]){8}\b" ); do K=${KEY:(-8)}; sudo rm /etc/apt/trusted.gpg.d/imported-from-trusted-gpg-$K.gpg; apt-key export $K | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/imported-from-trusted-gpg-$K.gpg; done
 
 sudo apt update -y
-sudo apt install -y kali-archive-keyring git stow python3 neovim curl python3 zsh tmux texlive-latex-recommended texlive-fonts-extra texlive-latex-extra pandoc evince $NULLIFY
+sudo apt install -y kali-archive-keyring git stow python3 neovim curl python3 zsh tmux texlive-latex-recommended texlive-fonts-extra texlive-latex-extra pandoc evince 2>/dev/null
 
 
 sudo mkdir -p /usr/share/pandoc/data/templates/
@@ -32,14 +31,14 @@ sudo mkdir -p /etc/kali-motd/
 sudo touch /etc/kali-motd/disable-all
 
 #Installing required packages
-sudo apt update -y $NULLIFY
-sudo apt --fix-broken install -y $NULLIFY
-sudo apt upgrade -y $NULLIFY
-sudo apt dist-upgrade -y $NULLIFY
-sudo apt install -f $NULLIFY
-sudo apt autoremove -y $NULLIFY
-sudo apt autoclean -y $NULLIFY
-sudo apt clean -y $NULLIFY
+sudo apt update -y 2>/dev/null
+sudo apt --fix-broken install -y 2>/dev/null
+sudo apt upgrade -y 2>/dev/null
+sudo apt dist-upgrade -y 2>/dev/null
+sudo apt install -f 2>/dev/null
+sudo apt autoremove -y 2>/dev/null
+sudo apt autoclean -y 2>/dev/null
+sudo apt clean -y 2>/dev/null
 
 #Installing custom configs
 echo "Installing custom configs!"
