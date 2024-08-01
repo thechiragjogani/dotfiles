@@ -50,6 +50,10 @@ sudo ln -s ~/Tools/jwt_tool/jwt_tool.py /usr/bin/jwt_tool
 cd /usr/share/seclists/Discovery/DNS/
 sudo cat dns-Jhaddix.txt | head -n -14 | sudo tee clean-jhaddix-dns.txt &> /dev/null
 
+tools
+cd reconftw/
+./install.sh
+
 cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
 cat /opt/gotools.txt | xargs -I {} /usr/bin/zsh -c 'sudo go install {} 2>/dev/null'
 
