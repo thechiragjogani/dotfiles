@@ -54,7 +54,8 @@ tools
 cd reconftw/
 ./install.sh
 
-cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
+# cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
 cat /opt/gotools.txt | xargs -I {} /usr/bin/zsh -c 'sudo go install {} 2>/dev/null'
-
-echo "Done! All tools are set up in /opt/tools"
+pdtm -ia
+pdtm -ua
+echo "Done! All tools are set up in ~/Tools"
