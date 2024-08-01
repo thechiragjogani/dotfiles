@@ -39,6 +39,8 @@ tools
 cd reconftw/
 ./install.sh
 
+echo -e 'export GOROOT=/usr/local/go\nexport GOPATH=$HOME/go\nexport PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH' | sudo tee -a $HOME/.zshrc 2> /dev/null
+
 cat /opt/labs.txt | xargs -I {} /usr/bin/zsh -c 'sudo docker pull {} 2> /dev/null'
 
 echo "Done! All tools are set up in $HOME/Tools"
